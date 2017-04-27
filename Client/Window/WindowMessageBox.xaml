@@ -1,0 +1,53 @@
+﻿<!--
+//  Copyright (C) 2016, Telco Cloud Trading & Logistic Ltd
+//
+//  This file is part of dodicall.
+//  dodicall is free software : you can redistribute it and / or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//
+//  dodicall is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with dodicall.If not, see<http://www.gnu.org/licenses/> .
+-->
+
+<Window x:Class="dodicall.Window.WindowMessageBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:dodicall.Window"
+        mc:Ignorable="d"
+        Style="{StaticResource VS2012MessageBoxStyle}" WindowStartupLocation="CenterOwner"
+        MinHeight="200" Height="200" MinWidth="500" Width="500" ResizeMode="NoResize" ShowInTaskbar="False">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Image Name="ImageInformation" Source="/dodicall;component/Resources/icon_information.png" Height="33" Width="33" Visibility="Hidden"/>
+        <Image Name="ImageWarning" Source="/dodicall;component/Resources/icon_warning.png" Height="33" Width="33" Visibility="Hidden"/>
+        <Image Name="ImageError" Source="/dodicall;component/Resources/icon_error.png" Height="33" Width="33" Visibility="Hidden"/>
+        <Image Name="ImageQuestion" Source="/dodicall;component/Resources/icon_question.png" Height="33" Width="33" Visibility="Hidden"/>
+
+        <TextBlock Grid.Column="1" Name="TextBlockText" Margin="0,0,15,0" VerticalAlignment="Center" TextWrapping="Wrap"/>
+
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Margin="5" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Name="ButtonContinue" Content="{DynamicResource WindowMessageBox_Continue}" Height="30" Width="120" Margin="5" Visibility="Collapsed" Click="ButtonContinue_Click"/>
+            <Button Name="ButtonOk" Content="Ok" Height="30" Width="100" Margin="5" Visibility="Collapsed" Click="ButtonOk_Click"/>
+            <Button Name="ButtonYes" Content="{DynamicResource WindowMessageBox_Yes}" Height="30" Width="100" Margin="5" Visibility="Collapsed" Click="ButtonYes_Click"/>
+            <Button Name="ButtonNo" Content="{DynamicResource WindowMessageBox_No}" Height="30" Width="100" Margin="5" Visibility="Collapsed" Click="ButtonNo_Click"/>
+            <Button Name="ButtonCancel" Content="{DynamicResource WindowMessageBox_Cancel}" Height="30" Width="100" Margin="5" Visibility="Collapsed" Click="ButtonCancel_Click"/> 
+        </StackPanel>
+    </Grid>
+</Window>

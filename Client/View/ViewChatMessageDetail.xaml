@@ -1,0 +1,290 @@
+﻿<!--
+//  Copyright (C) 2016, Telco Cloud Trading & Logistic Ltd
+//
+//  This file is part of dodicall.
+//  dodicall is free software : you can redistribute it and / or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//
+//  dodicall is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with dodicall.If not, see<http://www.gnu.org/licenses/> .
+-->
+
+<UserControl x:Class="dodicall.View.ViewChatMessageDetail"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:dodicall.View"
+             xmlns:converter="clr-namespace:dodicall.Converter"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" SizeChanged="ViewChatMessageDetail_OnSizeChanged" x:Name="ViewChatMessageDetailUserControl">
+    <Grid Name="GridMain">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="58"/>
+            <!-- если задать Height="Auto", то с какого то хрена отделительная серая полоса (Rectangle) становится толщиной в 2 пикселя, по этому выставил в ручную -->
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Name="GridHeaderChat">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Margin="7,-2,10,0" Height="36" Width="36">
+                <Image Source="{Binding CurrentModelChat.Avatar}"/>
+                <Image HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="15" Width="15" Source="/dodicall;component/Resources/IconTray_small.png"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition  Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Horizontal" Name="StackPanelTitle" MouseEnter="OnTitleChatMouseEnter"  >
+                    <TextBlock Name="ChatTitleTextBlock" Width="Auto" Margin="4,11,5,0" FontWeight="Bold" FontSize="14" Text="{Binding CurrentModelChat.CheckedTitle}" TextTrimming="CharacterEllipsis" MouseEnter="OnTitleChatMouseEnter" MouseLeftButtonDown="OnChatTitleTextBlock_MouseLeftButtonDown" />
+                    <Button Name="ChatTitleEditButton" Width="30" Height="30" Style="{StaticResource ButtonStyleTransparent}" Margin="0,0,0,0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"  Visibility="Hidden" MouseEnter="OnTitleChatMouseEnter"  MouseLeave="OnTitleChatMouseLeave" Click="TitleChatEditMouseButtonDown" >
+                        <Image HorizontalAlignment="Left" Height="10" Width="10" Margin="0,0,0,0" Source="/dodicall;component/Resources/edit.png"/>
+                    </Button>
+                </StackPanel>
+                <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Stretch" Visibility="Collapsed"  Name="StackPanelEditTitle" >
+                    <TextBox Name="ChatTitleTextBox" Margin="0,5,15,0" FontWeight="Bold" FontSize="14" MaxLines="1" Text="{Binding CurrentModelChat.Title, UpdateSourceTrigger=Explicit}" PreviewKeyUp="ChatTitleTextBox_OnPreviewKeyDown"  LostFocus="ChatTitleTextBox_LostFocus" />
+                    <Image Name="ChatTitleEditConfirmButton" Width="16" Height="16" HorizontalAlignment="Right" Margin="0,8,15,0" Source="/dodicall;component/Resources/confirm.png" MouseLeftButtonDown="ChatTitleEditConfirmButton_MouseLeftButtonDown" >
+                    </Image>
+                    <Image Name="ChatTitleEditAbortButton" Width="16" Height="16" HorizontalAlignment="Right" Margin="0,8,15,0" Source="/dodicall;component/Resources/abort.png" MouseLeftButtonDown="TitleChatAbortEditMouseButtonDown" />
+                </StackPanel>
+                <Grid Grid.Row="1" Name="GridModelContactStatus" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+                        <Ellipse Margin="3,3,5,0"  Height="6" Width="6" Name="EllipseStatus" Fill="{Binding CurrentModelChat.ModelContactChat.ModelEnumUserBaseStatusObj.Color}"/>
+                        <TextBlock Margin="5,3,0,0" Foreground="Black" Text="{Binding CurrentModelChat.ModelContactChat.ModelEnumUserBaseStatusObj.Name}"/>
+                    </StackPanel>
+                    <TextBlock Grid.Column="1" Margin="0,3,5,5" Foreground="Black" Text="{Binding CurrentModelChat.ModelContactChat.UserExtendedStatusForFullStatus}" TextTrimming="CharacterEllipsis"/>
+                </Grid>
+                <StackPanel Grid.Row="1" Name="StackPanelCountModelContact" Margin="0,0,0,0" Orientation="Horizontal" Visibility="Visible" MouseLeftButtonDown="StackPanelCountModelContact_MouseLeftButtonDown">
+                    <Image Name="HideOrOpenUserContactList" Width="10" Margin="0,0,3,3" Cursor="Hand" Height="10" RenderTransformOrigin=".5,.5" Source="/Resources/updown.png" >
+                        <Image.RenderTransform>
+                            <RotateTransform Angle="90" />
+                        </Image.RenderTransform>
+                    </Image>
+                    <TextBlock Margin="0,5,0,5" Name="TextBlockCountModelContact" Foreground="Gray" Cursor="Hand" Text="{Binding CurrentModelChat.CountModelContactString}"/>
+                </StackPanel>
+            </Grid>
+            <StackPanel Grid.Column="2" Margin="5,0,5,0" Orientation="Horizontal">
+                <Button Name="ButtonPhone" Width="50" Height="48" Style="{StaticResource ButtonStyleTransparent}" HorizontalAlignment="Center" VerticalAlignment="Center" Click="ButtonPhone_OnClick">
+                    <Image Name="ImagePhone" Height="19" Width="21"/>
+                </Button>
+                <Button Name="ButtonVideo" Height="48" Style="{StaticResource ButtonStyleTransparent}" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding CommandComingSoon}">
+                    <Image Name="ImageVideo" Height="20" Width="31"/>
+                </Button>
+            </StackPanel>
+            <Rectangle Grid.Column="3" Margin="5" Width="1" Fill="Silver"/>
+            <Image Grid.Column="4" Height="21" Width="30" Source="/Resources/3dotMenu.png" MouseLeftButtonDown="ContextMenuOpen">
+                <Image.ContextMenu>
+                    <ContextMenu  >
+                        <MenuItem Header="{DynamicResource ViewSelectionContact_ChatMembers}" IsEnabled="True" Click="OnInviteMembers_MouseClick" />
+                        <Separator Name="Sep1"/>
+                        <MenuItem Header="{DynamicResource ViewChatDetail_ContextMenuChatSettings}" IsEnabled="False" />
+                        <Separator Name="LeaveChatSeparator"  />
+                        <MenuItem Name="LeaceChatContextMenuItem"  Header="{DynamicResource ViewChatDetail_ContextMenuLeaveChat}" IsEnabled="False" Visibility="{Binding Path=CurrentModelChat.IsP2P,Converter={converter:ConverterBoolToVisibilityCollapsedInversion}}"/>
+                        <MenuItem Name="MultipleChoiceMenuItem"  Header="{DynamicResource ViewChatDetail_ContextMenuMultipleChoice}" Click="MultipleChoiceMenuItem_Click"/>
+                    </ContextMenu>
+                </Image.ContextMenu>
+            </Image>
+        </Grid>
+        <StackPanel Grid.Row="1">
+            <Rectangle Height="1" Fill="Silver"/>
+            <ScrollViewer Height="0" Name="ScrollChatUserList" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                <ItemsControl Name="ItemsControlChatUserList" HorizontalAlignment="Left"  ItemsSource="{Binding Path=CurrentModelChat.ListModelContactNotMe}" >
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Height="50" HorizontalAlignment="Left"  >
+                            </WrapPanel>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Height="20" Margin="2,2,2,2" Name="ChatMemberDetail">
+                                <Rectangle Fill="WhiteSmoke" RadiusX="10" RadiusY="10" />
+                                <Ellipse Height="6" Width="6" Name="EllipseStatus" Margin="6,6,0,6" HorizontalAlignment="Left" Fill="{Binding ModelEnumUserBaseStatusObj.Color}" />
+                                <TextBlock Margin="12,0,6,0" Name="TextBlockFullName" HorizontalAlignment="Left" Text="{Binding FullName}" />
+                                <Grid.ContextMenu>
+                                    <ContextMenu HorizontalContentAlignment="Left" HorizontalAlignment="Left">
+                                        <MenuItem IsEnabled="False" Header="{Binding FullName}" />
+                                        <Separator />
+                                        <MenuItem Name="SendRequest_MenuItem" IsEnabled="False" Header="{DynamicResource ViewContactDirectoryDetail_SendRequest}"  />
+                                        <Separator Name="SendRequest_Separator" />
+                                        <MenuItem Name="SendMessage_MenuItem" IsEnabled="False" Header="{DynamicResource ViewChatDetail_ContextMenuSendMessage}" />
+                                        <MenuItem Header="{DynamicResource WindowMain_MenuCall}" IsEnabled="False" Command="{Binding CommandComingSoon}" />
+                                        <Separator />
+                                        <MenuItem Header="{DynamicResource ViewContact_ContextMenuOpenProfile}" IsEnabled="False" />
+                                        <Separator />
+                                        <MenuItem Name="BlockContact_MenuItem" Header="{DynamicResource ViewChatDetail_ContextMenuBlockContact}" IsEnabled="False" />
+                                        <MenuItem Name="RemoveContact_MenuItem" Header="{DynamicResource ViewChatDetail_ContextMenuRemoveFromContactList}" IsEnabled="False" />
+                                        <Separator Name="BlockRemoveContact_Separator" />
+                                        <MenuItem Name="RemoveMemberFromChat" Header="{DynamicResource WindowMain_MenuChats_RemoveFromChat}" IsEnabled="True" Click="MenuItem_Click"/>
+                                    </ContextMenu>
+                                </Grid.ContextMenu>
+                            </Grid>
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding IsAccessStatus}" Value="false">
+                                    <Setter TargetName="EllipseStatus" Property="Visibility" Value="Collapsed"/>
+                                    <Setter TargetName="TextBlockFullName" Property="Margin" Value="6,0,6,0"/>
+                                    <Setter TargetName="BlockRemoveContact_Separator" Property="Visibility" Value="Collapsed"/>
+                                    <Setter TargetName="RemoveContact_MenuItem" Property="Visibility" Value="Collapsed"/>
+                                    <Setter TargetName="BlockContact_MenuItem" Property="Visibility" Value="Collapsed"/>
+                                    <Setter TargetName="SendMessage_MenuItem" Property="IsEnabled" Value="False"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsAccessStatus}" Value="true">
+                                    <Setter TargetName="SendRequest_MenuItem" Property="Visibility" Value="Collapsed"/>
+                                    <Setter TargetName="SendRequest_Separator" Property="Visibility" Value="Collapsed"/>
+                                    <!-- <Setter TargetName="SendMessage_MenuItem" Property="IsEnabled" Value="True"/> вернуть потом(когда доделаем меню по пользователю) -->
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+            <Rectangle Height="1" Fill="Silver"/>
+        </StackPanel>
+        <Grid Name="TopMenuMultipleChoice" Grid.Row="2" Visibility="Collapsed">
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <CheckBox Name="CheckBoxSelectAll" VerticalAlignment="Center"  HorizontalAlignment="Left" Click="CheckBoxSelectAll_Click"/>
+                <Label Content="{DynamicResource ViewChatDetail_SelectAll}"/>
+            </StackPanel>
+            <Button Name="ButtonCancelMultipleChoice" Grid.Row="2" HorizontalAlignment="Right"  Height="25" Width="25" Margin="10" Style="{StaticResource ButtonStyleTransparent}" Click="ButtonCancelMultipleChoice_Click">
+                <Button.Content>
+                    <Image Height="12" Width="12" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/dodicall;component/Resources/abort.png"/>
+                </Button.Content>
+            </Button>
+        </Grid>
+        <Grid Name="GridDetailListMessage" Grid.Row="3">
+            <ScrollViewer  Margin="10" Name="ScrollViewerListMessage" ScrollChanged="ScrollViewerListMessage_ScrollChanged">
+                <Grid>
+                    <StackPanel Name="GridListMessage" VerticalAlignment="Bottom"/>
+                </Grid>
+            </ScrollViewer>
+            <Grid Name="GridTopDateMessage" VerticalAlignment="Top" Height = "50" Visibility="Hidden">
+                <Rectangle VerticalAlignment="Top" Fill = "White" Height = "50" Opacity="0.9"/>
+                <Rectangle Name="RectangleDateMessage" VerticalAlignment="Top" Fill="WhiteSmoke" RadiusX="14" RadiusY="14" Height="28" Width="120" Margin="0,15,30,0"/>
+                <TextBlock Name="TextBlockTopDateMessage" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" FontSize="{Binding FontSize}" Margin="0,20,30,0"/>
+            </Grid>
+        </Grid>
+        <Rectangle Grid.Row="4" Name="RectangleQuotedMessage" Height="1" Fill="Gray" Margin="10,0,10,0" Visibility="Collapsed"/>
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <ScrollViewer VerticalScrollBarVisibility="Auto"  MaxHeight="200">
+                <Grid Name="GridQuotedMessage" Visibility="Collapsed"/>
+            </ScrollViewer>
+            <Button Grid.Column="1" Name="ButtonRemoveQuotedMessage" HorizontalAlignment="Right"  Height="25" Width="25" Margin="10" Style="{StaticResource ButtonStyleTransparent}" Click="ButtonRemoveQuotedMessage_Click" Visibility="Collapsed">
+                <Button.Content>
+                    <Image Height="12" Width="12" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/dodicall;component/Resources/abort.png"/>
+                </Button.Content>
+            </Button>
+        </Grid>
+        <Rectangle Grid.Row="6" Name="RectangleMessage" Height="1" Fill="Red" Margin="10,0,10,0"/>
+        <Grid Name="GridSetMessage" Grid.Row="7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0" Name="TextBoxWriteMessage" HorizontalAlignment="Right" FontSize="{Binding FontSize}" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Hidden" BorderThickness="0" MaxLines="10"
+                     Text="{Binding CurrentModelChatMessage.StringContent, UpdateSourceTrigger=PropertyChanged}" PreviewKeyDown="TextBoxWriteMessage_OnPreviewKeyDown" TextChanged="TextBoxWriteMessage_TextChanged"
+                     GotFocus="TextBoxWriteMessage_GotFocus" LostFocus="TextBoxWriteMessage_LostFocus" />
+            <TextBlock Name="TextBlockWriteMessage" Margin="16,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="Silver" FontSize="{Binding FontSize}" Text="{DynamicResource ViewChatDetail_EnterMessage}" MouseLeftButtonDown="TextBlockEnterMessage_MouseLeftButtonDown"/>
+            <StackPanel Grid.Column="1" Margin="5,5,10,5" Orientation="Horizontal">
+                <Button ContextMenuService.IsEnabled="False" Height="40" Style="{StaticResource ButtonStyleTransparent}" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Click_ClipButton">
+                    <Image Height="20" Width="22" Source="/Resources/clip.png"/>
+                    <Button.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="{DynamicResource ViewChatDetail_SendContact}" Click="Click_ClipSendContact"/>
+                        </ContextMenu>
+                    </Button.ContextMenu>
+                </Button>
+                <Grid Margin="10,0,0,0" Height="29" Width="29">
+                    <Image Name="ImageSendMessage" Source="/Resources/send_message.png" Style="{StaticResource ImageStyleButton}" MouseLeftButtonDown="ImageSendMessage_MouseLeftButtonDown"/>
+                    <Rectangle Name="RectangleSendMessage" Opacity="0.5" Fill="White" />
+                </Grid>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="7" Name="GridWriteMessageDisable" Background="White" Opacity="0.7" Visibility="Hidden"/>
+        <Grid Name="BottomMenuMultipleChoice" Grid.Row="8"  Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Name="ButtonMultipleForwardMessage" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"  Style="{StaticResource ButtonStyleTransparent}" Click="ButtonMultipleForwardMessage_Click">
+                <Button.Content>
+                    <StackPanel Margin="0,15,0,15">
+                        <Image Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/dodicall;component/Resources/forward.png"/>
+                        <Label Content="{DynamicResource ViewChatDetail_Forward}"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button Name="ButtonMultipleCopyMessage" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  Style="{StaticResource ButtonStyleTransparent}" Click="ButtonMultipleCopyMessage_Click">
+                <Button.Content>
+                    <StackPanel Margin="0,15,0,15">
+                        <Image Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/dodicall;component/Resources/copy.png"/>
+                        <Label Content="{DynamicResource ViewChatDetail_Copy}"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button Name="ButtonMultipleCiteMessage" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"  Style="{StaticResource ButtonStyleTransparent}" Click="ButtonMultipleCiteMessage_Click">
+                <Button.Content>
+                    <StackPanel Margin="0,15,0,15">
+                        <Image Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/dodicall;component/Resources/cit.png"/>
+                        <Label Content="{DynamicResource ViewChatDetail_Cite}"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button Name="ButtonMultipleExportMessage" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"  Style="{StaticResource ButtonStyleTransparent}" Click="ButtonMultipleExportMessage_Click">
+                <Button.Content>
+                    <StackPanel Margin="0,15,0,15">
+                        <Image Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/dodicall;component/Resources/export.png"/>
+                        <Label Content="{DynamicResource ViewChatDetail_Export}"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button Name="ButtonMultipleFavoriteMessage" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"  Style="{StaticResource ButtonStyleTransparent}" Click="ButtonMultipleFavoriteMessage_Click">
+                <Button.Content>
+                    <StackPanel Margin="0,15,0,15">
+                        <Image Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/dodicall;component/Resources/favGray.png"/>
+                        <Label Content="{DynamicResource ViewChatDetail_ToFavorites}"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button Name="ButtonMultipleDeleteMessage" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center"  Style="{StaticResource ButtonStyleTransparent}" Click="ButtonMultipleDeleteMessage_Click">
+                <Button.Content>
+                    <StackPanel Margin="0,15,0,15">
+                        <Image Height="15" Width="15" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/dodicall;component/Resources/delete.png"/>
+                        <Label Content="{DynamicResource ViewChatDetail_Delete}"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+        </Grid>
+    </Grid>
+</UserControl>

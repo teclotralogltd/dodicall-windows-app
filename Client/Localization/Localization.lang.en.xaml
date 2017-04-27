@@ -1,0 +1,392 @@
+﻿<!--
+//  Copyright (C) 2016, Telco Cloud Trading & Logistic Ltd
+//
+//  This file is part of dodicall.
+//  dodicall is free software : you can redistribute it and / or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//
+//  dodicall is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with dodicall.If not, see<http://www.gnu.org/licenses/> .
+-->
+
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:dodicall.Resources"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Common -->
+    <s:String x:Key="Common_ComingSoon">Coming soon</s:String>
+    <s:String x:Key="Common_Save">Save</s:String>
+    <s:String x:Key="Common_Cancel">Cancel</s:String>
+
+    <!-- WindowMain -->
+    <s:String x:Key="WindowMain_ApplicationWork">dodicall is still running !</s:String>
+    <s:String x:Key="WindowMain_MenuAbout">About application Dodicall</s:String>
+    <s:String x:Key="WindowMain_MenuSettings">Settings</s:String>
+    <s:String x:Key="WindowMain_MenuErrorReport">Error report</s:String>
+    <s:String x:Key="WindowMain_MenuExit">Exit Dodicall</s:String>
+    <s:String x:Key="WindowMain_MenuClose">Close Dodicall</s:String>
+    <s:String x:Key="WindowMain_MenuContacts">Contacts</s:String>
+    <s:String x:Key="WindowMain_MenuContacts_SearchingNewContacts">Searching for new contacts</s:String>
+    <s:String x:Key="WindowMain_MenuContacts_SearchingMyContacts">Searching in my contacts</s:String>
+    <s:String x:Key="WindowMain_MenuContacts_CreateContact">Сreate contact</s:String>
+    <s:String x:Key="WindowMain_MenuContacts_ShowProfile">Show profile</s:String>
+    <s:String x:Key="WindowMain_MenuContacts_Edit">Edit</s:String>
+    <s:String x:Key="WindowMain_MenuContacts_AddToWhiteList">Add to white list</s:String>
+    <s:String x:Key="WindowMain_MenuContacts_Call">Call</s:String>
+    <s:String x:Key="WindowMain_MenuContacts_SendMessage">Send message</s:String> 
+    <s:String x:Key="WindowMain_MenuContacts_BlockContact">Block contact</s:String>
+    <s:String x:Key="WindowMain_MenuContacts_DeleteContact">Delete contact</s:String>
+    <s:String x:Key="WindowMain_MenuHistory">History</s:String>
+    <s:String x:Key="WindowMain_MenuHistory_FilterHistory">Filter history</s:String>
+    <s:String x:Key="WindowMain_MenuHistory_ClearHistory">Clear the entire history</s:String>
+    <s:String x:Key="WindowMain_MenuChats">Chats</s:String>
+    <s:String x:Key="WindowMain_MenuChats_CreateNewChat">Create a new chat</s:String>
+    <s:String x:Key="WindowMain_MenuChats_MarkAllChatsAsRead">Mark all chats as read</s:String>
+    <s:String x:Key="WindowMain_MenuChats_Call">Call</s:String>
+    <s:String x:Key="WindowMain_MenuChats_SendMessage">Send Message</s:String> 
+    <s:String x:Key="WindowMain_MenuChats_SendFile">Send file</s:String>
+    <s:String x:Key="WindowMain_MenuChats_SendContact">Send contact</s:String> 
+    <s:String x:Key="WindowMain_MenuChats_Rename">Rename chat</s:String>
+    <s:String x:Key="WindowMain_MenuChats_Members">Chat members</s:String>
+    <s:String x:Key="WindowMain_MenuChats_SignOutOfChat">Sign out of chat</s:String>
+    <s:String x:Key="WindowMain_MenuChats_ClearChatHistory">Clear chat history</s:String>
+    <s:String x:Key="WindowMain_MenuChats_ClearAllChats">Clear all chats</s:String>
+    <s:String x:Key="WindowMain_MenuCall">Call</s:String>
+    <s:String x:Key="WindowMain_MenuCall_DialNumber">Dial number</s:String>
+    <s:String x:Key="WindowMain_MenuCall_CreateConference">Create conference</s:String>
+    <s:String x:Key="WindowMain_MenuCall_LearnTariff">Learn tariff</s:String>
+    <s:String x:Key="WindowMain_MenuCall_SaveNewContact">Save new contact</s:String>
+    <s:String x:Key="WindowMain_Services">Services</s:String>
+
+    <!-- ViewUserAuthorization -->
+    <s:String x:Key="ViewUserAuthorization_WindowCaption">- Log in</s:String>
+    <s:String x:Key="ViewUserAuthorization_LoginText">Login</s:String>
+    <s:String x:Key="ViewUserAuthorization_PasswordText">Password</s:String>
+    <s:String x:Key="ViewUserAuthorization_FailLoginText">Error. Invalid login or password</s:String>
+    <s:String x:Key="ViewUserAuthorization_SystemErrorText">System error</s:String>
+    <s:String x:Key="ViewUserAuthorization_NoNetwork">No network</s:String>
+    <s:String x:Key="ViewUserAuthorization_EnterButton">Log in</s:String>
+    <s:String x:Key="ViewUserAuthorization_AutostartCheckBox">launch application at startup</s:String>
+    <s:String x:Key="ViewUserAuthorization_AutoLoginCheckBox">automatic log on</s:String>
+    <s:String x:Key="ViewUserAuthorization_ForgotPasswordButton">Forgot password ?</s:String>
+    <s:String x:Key="ViewUserAuthorization_SignUpButton">Sign up</s:String>
+    <s:String x:Key="ViewUserAuthorization_VersionText">Version</s:String>
+
+    <!-- ViewUserSettings -->
+    <s:String x:Key="ViewUserSettings_Title">- Settings</s:String>
+    <s:String x:Key="ViewUserSettings_Status">Status</s:String>
+    <s:String x:Key="ViewUserSettings_ExtendedStatus">Extended status</s:String>
+    <s:String x:Key="ViewUserSettings_Enter">Enter</s:String>
+    <s:String x:Key="ViewUserSettings_AutoLogin">Automatic log on</s:String>
+    <s:String x:Key="ViewUserSettings_Autostart">Launch application at startup</s:String>
+    <s:String x:Key="ViewUserSettings_Mode">Mode</s:String>
+    <s:String x:Key="ViewUserSettings_DoNotDesturbMode">White list</s:String>
+    <s:String x:Key="ViewUserSettings_Account">Account sip</s:String>
+    <s:String x:Key="ViewUserSettings_DefaultAccount">Dafault account</s:String>
+    <s:String x:Key="ViewUserSettings_VoiceMessage">Voice message (0/0)</s:String>
+    <s:String x:Key="ViewUserSettings_VoiceMessageStart">Start</s:String>
+    <s:String x:Key="ViewUserSettings_Encryption">Encryption</s:String>
+    <s:String x:Key="ViewUserSettings_VoipEncryption">Encryption method</s:String>
+    <s:String x:Key="ViewUserSettings_Video">Video</s:String>
+    <s:String x:Key="ViewUserSettings_VideoEnabled">Allow videoсall</s:String>
+    <s:String x:Key="ViewUserSettings_VideoSizeWifi">Video size (WiFi)</s:String>
+    <s:String x:Key="ViewUserSettings_VideoSizeCell">Video size (Cell)</s:String>
+    <s:String x:Key="ViewUserSettings_EchoCancellation">Echo cancellation</s:String>
+    <s:String x:Key="ViewUserSettings_EchoCancellationMode">Echo cancellation mode</s:String>
+    <s:String x:Key="ViewUserSettings_Font">Font</s:String>
+    <s:String x:Key="ViewUserSettings_FontSize">Font size</s:String>
+    <s:String x:Key="ViewUserSettings_ClearChat">Clear chats</s:String>
+    <s:String x:Key="ViewUserSettings_View">View</s:String>
+    <s:String x:Key="ViewUserSettings_Language">Language</s:String>
+    <s:String x:Key="ViewUserSettings_Theme">Theme</s:String>
+    <s:String x:Key="ViewUserSettings_Information">Information</s:String>
+    <s:String x:Key="ViewUserSettings_Reference">Reference</s:String>
+    <s:String x:Key="ViewUserSettings_About">About application</s:String>
+    <s:String x:Key="ViewUserSettings_News">What's news</s:String>
+    <s:String x:Key="ViewUserSettings_Problems">Known issue</s:String>
+    <s:String x:Key="ViewUserSettings_PrivacyPolicyUri">Privacy policy</s:String> 
+    <s:String x:Key="ViewUserSettings_Help">Help</s:String>
+    <s:String x:Key="ViewUserSettings_Trace">Trace</s:String>
+    <s:String x:Key="ViewUserSettings_TraceMode">Trace mode</s:String>
+    <s:String x:Key="ViewUserSettings_Codecs">Codecs</s:String>
+    <s:String x:Key="ViewUserSettings_CodecsAudioWifi">Codecs Audio (WiFi)</s:String>
+    <s:String x:Key="ViewUserSettings_CodecsAudioCell">Codecs Audio (Cell)</s:String>
+    <s:String x:Key="ViewUserSettings_CodecsVideo">Codecs Video</s:String>
+    <s:String x:Key="ViewUserSettings_Logs">Logs</s:String>
+    <s:String x:Key="ViewUserSettings_LogChat">Chat log</s:String>
+    <s:String x:Key="ViewUserSettings_LogsDatabase">Database log</s:String>
+    <s:String x:Key="ViewUserSettings_LogRequest">Request log</s:String>
+    <s:String x:Key="ViewUserSettings_LogVoip">Call log</s:String>
+    <s:String x:Key="ViewUserSettings_LogHistoryCall">Call history</s:String>
+    <s:String x:Key="ViewUserSettings_LogQualityCall">Call quality log</s:String>
+    <s:String x:Key="ViewUserSettings_LogTrace">Trace log</s:String>
+    <s:String x:Key="ViewUserSettings_LogApplication">Application log</s:String>
+    <s:String x:Key="ViewUserSettings_LogClear">Clear logs</s:String>
+    <s:String x:Key="ViewUserSettings_LogClearSuccessful">Clear logs successful</s:String>
+    <s:String x:Key="ViewUserSettings_LogOpen">Open</s:String>
+    <s:String x:Key="ViewUserSettings_Error">Errors</s:String>
+    <s:String x:Key="ViewUserSettings_ErrorReport">Error report</s:String>
+    <s:String x:Key="ViewUserSettings_ErrorSend">Send</s:String>
+    <s:String x:Key="ViewUserSettings_Save">Save</s:String>
+    <s:String x:Key="ViewUserSettings_Cancel">Cancel</s:String>
+    <s:String x:Key="ViewUserSettings_DontSaveSettingsMessage">Settings are not saved. Save ?</s:String>
+    <s:String x:Key="ViewUserSettings_MustAddContactsToTheWhitelist">To enable the setting, you must add contacts to the whitelist</s:String>
+    <s:String x:Key="ViewUserSettings_ReceiveIncomingCallsOnlyWhitelist">You will receive incoming calls only from users on the whitelist. Enable whitelist mode ?</s:String>
+    <s:String x:Key="ViewUserSettings_InformationTraceMode">Trace mode increases the amount of application data and uses your personal information. Continue ?</s:String>
+    <s:String x:Key="ViewUserSettings_CopyToClipboard">Copy to clipboard</s:String>
+    <s:String x:Key="ViewUserSettings_ScanQRCode">Scan QR code</s:String>
+    <s:String x:Key="ViewUserSettings_CopyFromClipBoard">Copy from clipboard</s:String>
+    <s:String x:Key="ViewUserSettings_SaveAs">Save as</s:String>
+    <s:String x:Key="ViewUserSettings_ExportEncryptionKey">Export encryption key</s:String>
+    <s:String x:Key="ViewUserSettings_ImportEncryptionKey">Import encryption key</s:String>
+    <s:String x:Key="ViewUserSettings_Imported">Imported</s:String>
+    <s:String x:Key="ViewUserSettings_MinimumKeyLength">Minimum key length - 2048 characters</s:String>
+    <s:String x:Key="ViewUserSettings_TextEntered">Entered characters -</s:String>
+    <s:String x:Key="ViewUserSettings_Import">Import</s:String> 
+    <s:String x:Key="ViewUserSettings_PasteEncryptionKey">Paste here encryptyon key from clipboard</s:String>
+    <s:String x:Key="ViewUserSettings_ImportFail">Invalid encryption key. Try again</s:String>
+    <s:String x:Key="ViewUserSettings_ExportSucced">Your encryption key is saved</s:String>
+    <s:String x:Key="ViewUserSettings_Refresh">Updating the encryption key</s:String>
+    <s:String x:Key="ViewUserSettings_CreateNewKey">Create a new encryption key</s:String>
+    <s:String x:Key="ViewUserSettings_LostOldCorrespondence">Old correspondence will be lost</s:String>
+    <s:String x:Key="ViewUserSettings_AlertLostCorrespondence">When creating a new encryption key, access to the old correspondence will be irretrievably lost</s:String> 
+    
+    <!-- WindowMessageBox -->
+    <s:String x:Key="WindowMessageBox_Yes">Yes</s:String>
+    <s:String x:Key="WindowMessageBox_No">No</s:String>
+    <s:String x:Key="WindowMessageBox_Cancel">Cancel</s:String>
+    <s:String x:Key="WindowMessageBox_Information">Information</s:String>
+    <s:String x:Key="WindowMessageBox_Warning">Warning</s:String>
+    <s:String x:Key="WindowMessageBox_Error">Error</s:String>
+    <s:String x:Key="WindowMessageBox_Question">Question</s:String>
+    <s:String x:Key="WindowMessageBox_Continue">Continue</s:String> 
+
+    <!-- ViewErrorReport -->
+    <s:String x:Key="ViewErrorReport_Title">Error report</s:String>
+    <s:String x:Key="ViewErrorReport_Subject">Subject</s:String>
+    <s:String x:Key="ViewErrorReport_Description">Description</s:String>
+    <s:String x:Key="ViewErrorReport_LogChat">Chat log</s:String>
+    <s:String x:Key="ViewErrorReport_LogsDatabase">Database log</s:String>
+    <s:String x:Key="ViewErrorReport_LogRequest">Request log</s:String>
+    <s:String x:Key="ViewErrorReport_LogVoip">Call log</s:String>
+    <s:String x:Key="ViewErrorReport_LogHistoryCall">Call history</s:String>
+    <s:String x:Key="ViewErrorReport_LogQualityCall">Call quality log</s:String>
+    <s:String x:Key="ViewErrorReport_LogTrace">Trace log</s:String>
+    <s:String x:Key="ViewErrorReport_LogGui">Application log</s:String>
+    <s:String x:Key="ViewErrorReport_SendSuccessful">Thanks ! Your error report has been sent. Issue:</s:String>
+    <s:String x:Key="ViewErrorReport_SendFail">Sorry ! Your error report hasn't been sent.</s:String>
+    <s:String x:Key="ViewErrorReport_Send">Send</s:String>
+    <s:String x:Key="ViewErrorReport_Cancel">Cancel</s:String>
+    <s:String x:Key="ViewErrorReport_SubjectEmpty">Subject is empty.</s:String>
+    <s:String x:Key="ViewErrorReport_DescriptionEmpty">Description is empty.</s:String>
+    <s:String x:Key="ViewErrorReport_ApplyQuestion">Do you want send error report ?</s:String>
+
+    <!-- WindowInformation -->
+    <s:String x:Key="WindowInformation_AboutTitle">About</s:String>
+    <s:String x:Key="WindowInformation_AboutUrl"></s:String>
+    <s:String x:Key="WindowInformation_AboutVersion">Version</s:String>
+    <s:String x:Key="WindowInformation_NewsTitle">News</s:String>
+    <s:String x:Key="WindowInformation_NewsUrl"></s:String>
+    <s:String x:Key="WindowInformation_ProblemsTitle">Known issue</s:String>
+    <s:String x:Key="WindowInformation_ProblemsUrl"></s:String>
+
+    <!-- ViewUserStatus -->
+    <s:String x:Key="ViewUserStatus_Title">Set status</s:String>
+
+    <!-- ViewUserDetail -->
+    <s:String x:Key="ViewUserDetail_MyContact">My contacts:</s:String>
+    <s:String x:Key="ViewUserDetail_ExtraContact">Additional contacts:</s:String>
+    <s:String x:Key="ViewUserDetail_Phone">phone</s:String>
+
+    <!-- ViewContact -->
+    <s:String x:Key="ViewContact_Contact">Contacts</s:String>
+    <s:String x:Key="ViewContact_History">History</s:String>
+    <s:String x:Key="ViewContact_Chat">Chats</s:String>
+    <s:String x:Key="ViewContact_RequestInvite">Requests and invates</s:String>
+    <s:String x:Key="ViewContact_FindNewContact">Find a new contact</s:String>
+    <s:String x:Key="ViewContact_Call">Call</s:String>
+    <s:String x:Key="ViewContact_Search">Find in my contacts</s:String>
+    <s:String x:Key="ViewContact_AllContact">All contact</s:String>
+    <s:String x:Key="ViewContact_DodicallContact">dodicall</s:String>
+    <s:String x:Key="ViewContact_SavedContact">Saved contacts</s:String>
+    <s:String x:Key="ViewContact_BlockedContact">Blocked contacts</s:String>
+    <s:String x:Key="ViewContact_WhiteContact">White contacts</s:String>
+    <s:String x:Key="ViewContact_GroupContact">Groups</s:String>
+    <s:String x:Key="ViewContact_Blocked">Blocked</s:String>
+    <s:String x:Key="ViewContact_ContextMenuCall">Call</s:String>
+    <s:String x:Key="ViewContact_ContextMenuWriteMessage">Write message</s:String>
+    <s:String x:Key="ViewContact_ContextMenuOpenProfile">Open profile</s:String>
+    <s:String x:Key="ViewContact_ContextMenuEdit">Edit</s:String>
+    <s:String x:Key="ViewContact_ContextMenuAddToWhite">Add to white</s:String>
+    <s:String x:Key="ViewContact_ContextMenuDeleteFromWhite">Delete from white</s:String>
+    <s:String x:Key="ViewContact_ContextMenuBlock">Block</s:String>
+    <s:String x:Key="ViewContact_ContextMenuUnblock">Unblock</s:String>
+    <s:String x:Key="ViewContact_ContextMenuDelete">Delete</s:String>
+
+    <!-- ViewContactDetail -->
+    <s:String x:Key="ViewContactDetail_Contact">Contacts:</s:String>
+    <s:String x:Key="ViewContactDetail_ExtraContact">Additional contacts:</s:String>
+    <s:String x:Key="ViewContactDetail_AddToWhite">Add to white list</s:String>
+    <s:String x:Key="ViewContactDetail_DeleteFromWhite">Delete from white list</s:String>
+    <s:String x:Key="ViewContactDetail_Block">Block</s:String>
+    <s:String x:Key="ViewContactDetail_Delete">Delete</s:String>
+    <s:String x:Key="ViewContactDetail_Phone">phone</s:String>
+    <s:String x:Key="ViewContactDetail_SentRequest">Sent request</s:String>
+    <s:String x:Key="ViewContactDetail_SendRequest">Add to contacts</s:String>
+    <s:String x:Key="ViewContactDetail_BackToSearchResult">Back to search result</s:String>
+    <s:String x:Key="ViewContactDetail_Blocked">Contact is blocked</s:String>
+    <s:String x:Key="ViewContactDetail_Unblock">Unblock</s:String>
+    <s:String x:Key="ViewContactDetail_Back">Back</s:String>
+    <s:String x:Key="ViewContactDetail_UserWantAddToFriend">User wants to add you to his contacts</s:String>
+    <s:String x:Key="ViewContactDetail_DeniedInvite">Denied</s:String>
+    <s:String x:Key="ViewContactDetail_ApplyInvite">Add</s:String>
+    <s:String x:Key="ViewContactDetail_DenyInvite">Deny</s:String>
+
+    <!-- WindowStartup -->
+    <s:String x:Key="WindowStartup_Open">Open dodicall</s:String>
+    <s:String x:Key="WindowStartup_Status">Status</s:String>
+    <s:String x:Key="WindowStartup_Exit">Exit</s:String>
+    <s:String x:Key="WindowStartup_Online">Online</s:String>
+    <s:String x:Key="WindowStartup_Dnd">Do not disturb</s:String>
+    <s:String x:Key="WindowStartup_Hidden">Hidden</s:String>
+    <s:String x:Key="WindowStartup_Offline">Offline</s:String>
+    <s:String x:Key="WindowStartup_SetStatus">Set status</s:String>
+
+    <!-- ViewPasswordBox -->
+    <s:String x:Key="ViewPasswordBox_EnterPassword">Enter your account password</s:String>
+    <s:String x:Key="ViewPasswordBox_IncorrectPassword">Incorrect password</s:String>
+    <s:String x:Key="ViewPasswordBox_ExportEncryptionKey">Export encryption key</s:String>
+    <s:String x:Key="ViewPasswordBox_ImportEncryptionKey">Import encryption key</s:String>
+    <s:String x:Key="ViewPasswordBox_Export">Export</s:String>
+    <s:String x:Key="ViewPasswordBox_Import">Import</s:String>
+    <s:String x:Key="ViewPasswordBox_CreateNewKey">Create a new encryption key</s:String>
+    <s:String x:Key="ViewPasswordBox_CreateNewKeyTitle">- Create a new encryption key</s:String>
+
+    <!-- ViewManualContact -->
+    <s:String x:Key="ViewManualContact_Title">Create new contact</s:String>
+    <s:String x:Key="ViewManualContact_FirstName">First name</s:String>
+    <s:String x:Key="ViewManualContact_LastName">Last name</s:String>
+    <s:String x:Key="ViewManualContact_Add">Add</s:String>
+
+    <!-- ViewContactDirectory -->
+    <s:String x:Key="ViewContactDirectory_Search">Enter first name, last name, sip-number</s:String>
+
+    <!-- ViewContactRequestInvite -->
+    <s:String x:Key="ViewContactRequestInvite_RequestInvite">Requests and invites</s:String>
+    <s:String x:Key="ViewContactRequestInvite_Request">Request:</s:String>
+    <s:String x:Key="ViewContactRequestInvite_Invite">Invite:</s:String>
+
+    <!-- ViewCall -->
+    <s:String x:Key="ViewCall_ContextMenuCall">Call</s:String>
+    <s:String x:Key="ViewCall_ContextMenuWriteMessage">Write message</s:String>
+    <s:String x:Key="ViewCall_ContextMenuCreateContact">Create contact</s:String>
+    
+    <!-- ViewCallActive -->
+    <s:String x:Key="ViewCallActive_Video">Video</s:String>
+    <s:String x:Key="ViewCallActive_Mute">Mute</s:String>
+    <s:String x:Key="ViewCallActive_Add">Add</s:String>
+    <s:String x:Key="ViewCallActive_Pause">Pause</s:String>
+    <s:String x:Key="ViewCallActive_CallTransfer">Call transfer</s:String>
+
+    <!-- ViewSelectionContact -->
+    <s:String x:Key="ViewSelectionContact_CreateMultiChat">Create new chat</s:String>
+    <s:String x:Key="ViewSelectionContact_Search">Search</s:String>
+    <s:String x:Key="ViewSelectionContact_Selected">Selected</s:String>
+    <s:String x:Key="ViewSelectionContact_CreateChat">Create chat</s:String>
+    <s:String x:Key="ViewSelectionContact_ChatMembers">Chat members</s:String>
+    <s:String x:Key="ViewSelectionContact_Save">Save</s:String>
+    <s:String x:Key="ViewSelectionContact_Send">Send</s:String>
+    <s:String x:Key="ViewSelectionContact_SendContact">Send contact</s:String>
+
+    <!-- ViewChat -->
+    <s:String x:Key="ViewChat_Call">Call</s:String>
+    <s:String x:Key="ViewChat_Rename">Rename</s:String>
+    <s:String x:Key="ViewChat_ChatMembers">Chat members</s:String>
+    <s:String x:Key="ViewChat_Draft">Draft:</s:String>
+    <s:String x:Key="ViewChat_MarkReadAll">Mark all as read</s:String>
+    <s:String x:Key="ViewChat_Delete">Clear chat history</s:String>
+
+    <!-- ViewChatDetail -->
+    <s:String x:Key="ViewChatDetail_Today">Today</s:String>
+    <s:String x:Key="ViewChatDetail_Yesterday">Yesterday</s:String>
+    <s:String x:Key="ViewChatDetail_UnreadMessages">Unread messages</s:String>
+    <s:String x:Key="ViewChatDetail_EnterMessage">Enter the text message</s:String>
+    <s:String x:Key="ViewChatDetail_MessageDeleted">Message was deleted</s:String>
+    <s:String x:Key="ViewChatDetail_EditMessage">Edit message</s:String>
+    <s:String x:Key="ViewChatDetail_DeleteMessage">Delete message</s:String>
+    <s:String x:Key="ViewChatDetail_CopyMessage">Copy message</s:String>
+    <s:String x:Key="ViewChatDetail_ContextMenuSendMessage">Send private message</s:String>
+    <s:String x:Key="ViewChatDetail_ContextMenuBlockContact">Block contact</s:String>
+    <s:String x:Key="ViewChatDetail_ContextMenuRemoveFromContactList">Remove from contacts</s:String>
+    <s:String x:Key="ViewChatDetail_ContextMenuChatSettings">Chat settings</s:String>
+    <s:String x:Key="ViewChatDetail_ContextMenuLeaveChat">Sign out of chat</s:String>
+    <s:String x:Key="ViewChatDetail_ContextMenuMultipleChoice">Сhoose</s:String>
+    <s:String x:Key="ViewChatDetail_InviteToChat">Add</s:String>
+    <s:String x:Key="ViewChatDetail_SendContact">Send contact</s:String>
+    <s:String x:Key="ViewChatDetail_AnswerMessage">Reply</s:String>
+    <s:String x:Key="ViewChatDetail_SelectAll">Select all</s:String>
+    <s:String x:Key="ViewChatDetail_Forward">Forward</s:String>
+    <s:String x:Key="ViewChatDetail_Copy">Copy</s:String>
+    <s:String x:Key="ViewChatDetail_Cite">Cite</s:String>
+    <s:String x:Key="ViewChatDetail_Export">Export</s:String>
+    <s:String x:Key="ViewChatDetail_ToFavorites">To favorites</s:String>
+    <s:String x:Key="ViewChatDetail_Delete">Delete</s:String>
+    <s:String x:Key="ViewChatDetail_At">at</s:String>
+    <s:String x:Key="ViewChatDetail_CountQuotingMessage">Quoted messages:</s:String>
+    <s:String x:Key="ViewChatDetail_EncryptedMessage">Message was encrypted</s:String>
+    <s:String x:Key="ViewChatDetail_EncryptedChat">Messages in this chat are protected by encryption</s:String>
+    <s:String x:Key="ViewChatDetail_More">More</s:String>
+    <s:String x:Key="ViewChatDetail_ContactDetails">Contact details:</s:String>
+    <s:String x:Key="ViewChatDetail_Send">Send</s:String>
+    <s:String x:Key="ViewChatDetail_DeliveredToServer">Delivered to server</s:String>
+
+    <!-- ViewChatEditMessage -->
+    <s:String x:Key="ViewChatEditMessage_Save">Save</s:String>
+    <s:String x:Key="ViewChatEditMessage_Cancel">Cancel</s:String>
+    <s:String x:Key="ViewChatEditMessage_Title">Edit message</s:String>
+
+    <!-- ViewDialpad -->
+    <s:String x:Key="ViewDialpad_ClearPhoneNumber">Delete one symbol (hold more than 2 sec to clear whole number)</s:String>
+
+    <!-- ViewSecurityKeyGenerated -->
+    <s:String x:Key="ViewSecurityKeyGenerated_KeyGenerated">Your personal encryption key is generated</s:String>
+    <s:String x:Key="ViewSecurityKeyGenerated_SaveKey">Save the key in a safe place to recover data in case of device change</s:String>
+    <s:String x:Key="ViewSecurityKeyGenerated_CopyToClipboard">Copy to Clipboard</s:String>
+    <s:String x:Key="ViewSecurityKeyGenerated_Export">Export</s:String>
+    <s:String x:Key="ViewSecurityKeyGenerated_Continue">Continue</s:String>
+    <s:String x:Key="ViewSecurityKeyGenerated_ExportSucced">Your encryption key is saved</s:String>
+    
+
+    <!-- ViewSecurityKeyChatAccess -->
+    <s:String x:Key="ViewSecurityKeyChatAccess_ChatAccess">To access your chat rooms enter the previously created encryption key</s:String>
+    <s:String x:Key="ViewSecurityKeyChatAccess_ImportEncryptionKey">To transfer key via QR-code, you will need your old device. To move through a key copy, copy the previously saved key.</s:String>
+    <s:String x:Key="ViewSecurityKeyChatAccess_CopyFromClipboard">Copy from clipboard</s:String>
+    <s:String x:Key="ViewSecurityKeyChatAccess_ScanQRCode">Scan QR-code</s:String>
+    <s:String x:Key="ViewSecurityKeyChatAccess_Continue">Skip</s:String>
+
+    <!-- ViewCallRedirect -->
+    <s:String x:Key="ViewCallRedirect_Search">Search</s:String>
+    <s:String x:Key="ViewCallRedirect_AllContact">All contact</s:String>
+    <s:String x:Key="ViewCallRedirect_DodicallContact">dodicall</s:String>
+    <s:String x:Key="ViewCallRedirect_SavedContact">Saved contacts</s:String>
+    <s:String x:Key="ViewCallRedirect_BlockedContact">Blocked contacts</s:String>
+    <s:String x:Key="ViewCallRedirect_WhiteContact">White contacts</s:String>
+    <s:String x:Key="ViewCallRedirect_RedirectCall">Call transfer</s:String>
+    <s:String x:Key="ViewCallRedirect_Cancel">Cancel</s:String>
+    <s:String x:Key="ViewCallRedirect_AdditionalContacts">Additional сontacts:</s:String>
+    <s:String x:Key="ViewCallRedirect_Phone">phone</s:String>
+
+    <!-- ViewChatRedirect -->
+    <s:String x:Key="ViewChatRedirect_Cancel">Cancel</s:String>
+    <s:String x:Key="ViewChatRedirect_Title">Redirect Message</s:String>
+    <s:String x:Key="ViewChatRedirect_Search">Search</s:String>
+
+</ResourceDictionary>

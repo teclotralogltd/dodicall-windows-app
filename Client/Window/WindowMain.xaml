@@ -1,0 +1,146 @@
+﻿<!--
+//  Copyright (C) 2016, Telco Cloud Trading & Logistic Ltd
+//
+//  This file is part of dodicall.
+//  dodicall is free software : you can redistribute it and / or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//
+//  dodicall is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with dodicall.If not, see<http://www.gnu.org/licenses/> .
+-->
+
+<Window x:Class="dodicall.Window.WindowMain"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:dodicall.Window"
+        xmlns:view="clr-namespace:dodicall.View"
+        mc:Ignorable="d"
+        Style="{StaticResource VS2012WindowStyle}"
+        WindowStartupLocation="CenterScreen" MinHeight="700" MinWidth="1050" Height="750" Width="1100" ContentRendered="Window_ContentRendered"
+        StateChanged="WindowMain_OnStateChanged" Closing="Window_Closing" IsVisibleChanged="WindowMain_OnIsVisibleChanged">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Menu Name="MenuMain" Visibility="Collapsed" Style="{StaticResource FlatMenuStyle}">
+            <MenuItem Header="Dodicall">
+                <MenuItem Header="{DynamicResource WindowMain_MenuAbout}" Command="{Binding CommandOpenAbout}"/>
+                <Separator/>
+                <MenuItem Header="{DynamicResource WindowMain_MenuSettings}" Command="{Binding CommandOpenUserSettings}"/>
+                <MenuItem Header="{DynamicResource WindowMain_MenuErrorReport}" IsEnabled="False"/>
+                <Separator/>
+                <MenuItem Header="{DynamicResource WindowMain_MenuExit}" IsEnabled="False"/>
+                <Separator/>
+                <MenuItem Header="{DynamicResource WindowMain_MenuClose}" Click="MenuItem_OnClick"/>
+            </MenuItem>
+            <MenuItem Header="{DynamicResource WindowMain_MenuContacts}">
+                <MenuItem Header="{DynamicResource WindowMain_MenuContacts_SearchingNewContacts}" IsEnabled="False"/>
+                <MenuItem Header="{DynamicResource WindowMain_MenuContacts_SearchingMyContacts}" IsEnabled="False"/>
+                <MenuItem Header="{DynamicResource WindowMain_MenuContacts_CreateContact}" Command="{Binding CommandCreateManualContact}"/>
+                <Separator/>
+                <MenuItem Header="{DynamicResource WindowMain_MenuContacts_ShowProfile}" IsEnabled="False"/>
+                <MenuItem Header="{DynamicResource WindowMain_MenuContacts_Edit}" IsEnabled="False"/>
+                <MenuItem Header="{DynamicResource WindowMain_MenuContacts_AddToWhiteList}" IsEnabled="False"/> 
+                <MenuItem Header="{DynamicResource WindowMain_MenuContacts_Call}" IsEnabled="False"/>
+                <MenuItem Header="{DynamicResource WindowMain_MenuContacts_SendMessage}" IsEnabled="False"/>
+                <Separator/>
+                <MenuItem Header="{DynamicResource WindowMain_MenuContacts_BlockContact}" IsEnabled="False"/>
+                <Separator/>
+                <MenuItem Header="{DynamicResource WindowMain_MenuContacts_DeleteContact}" IsEnabled="False"/>
+                <!--<MenuItem Header="Поиск новых контактов"/>
+                <MenuItem Header="Создать контакт"/>
+                <Separator/>
+                <MenuItem Header="Аудиовызов" IsEnabled="False"/>
+                <MenuItem Header="Видеовызов" IsEnabled="False"/>
+                <MenuItem Header="Сообщение в чат" IsEnabled="False"/>
+                <MenuItem Header="Создать конференцию" IsEnabled="False"/>
+                <Separator/>
+                <MenuItem Header="Показать профиль" IsEnabled="False"/>
+                <MenuItem Header="Редактировать" IsEnabled="False"/>
+                <MenuItem Header="Добавить в группу" IsEnabled="False"/>
+                <Separator/>
+                <MenuItem Header="Заблокировать контакт" IsEnabled="False"/>
+                <Separator/>
+                <MenuItem Header="Удалить контакт" IsEnabled="False"/>-->
+            </MenuItem>
+            <MenuItem Header="{DynamicResource WindowMain_MenuHistory}">
+                <MenuItem Header="{DynamicResource WindowMain_MenuHistory_FilterHistory}" IsEnabled="False"/>
+                <Separator/>
+                <MenuItem Header="{DynamicResource WindowMain_MenuHistory_ClearHistory}" IsEnabled="False"/>
+            </MenuItem>
+            <MenuItem Header="{DynamicResource WindowMain_MenuChats}">
+                <MenuItem Header="{DynamicResource WindowMain_MenuChats_CreateNewChat}" Command="{Binding CommandCreateMultiChat}"/>
+                <MenuItem Header="{DynamicResource WindowMain_MenuChats_MarkAllChatsAsRead}" IsEnabled="False"/>
+                <Separator/>
+                <MenuItem Header="{DynamicResource WindowMain_MenuChats_Call}" IsEnabled="False"/>
+                <MenuItem Header="{DynamicResource WindowMain_MenuChats_SendMessage}" IsEnabled="False"/>
+                <MenuItem Header="{DynamicResource WindowMain_MenuChats_SendFile}" IsEnabled="False"/>
+                <MenuItem Header="{DynamicResource WindowMain_MenuChats_SendContact}" IsEnabled="False"/> 
+                <Separator/>  
+                <MenuItem Header="{DynamicResource WindowMain_MenuChats_Rename}" IsEnabled="False"/>
+                <MenuItem Header="{DynamicResource WindowMain_MenuChats_Members}" IsEnabled="False"/>
+                <MenuItem Header="{DynamicResource WindowMain_MenuChats_SignOutOfChat}" IsEnabled="False"/>
+                <Separator/>
+                <MenuItem Header="{DynamicResource WindowMain_MenuChats_ClearChatHistory}" IsEnabled="False"/>
+                <Separator/>
+                <MenuItem Header="{DynamicResource WindowMain_MenuChats_ClearAllChats}" IsEnabled="False"/>
+            </MenuItem>
+            <MenuItem Header="{DynamicResource WindowMain_MenuCall}">
+                <MenuItem Header="{DynamicResource WindowMain_MenuCall_DialNumber}" IsEnabled="False"/> 
+            </MenuItem>
+            <MenuItem Header="{DynamicResource WindowMain_Services}">
+                <MenuItem Header="{DynamicResource Common_ComingSoon}" IsEnabled="False"/>
+            </MenuItem>
+        </Menu>
+
+        <Rectangle Grid.Row="1" Fill="Silver" Height="1" HorizontalAlignment="Stretch"/>
+
+        <Grid Grid.Row="2" Name="GridUser"/>
+
+        <Rectangle Grid.Row="3" Name="RectangleUser" Fill="Silver" Height="1" HorizontalAlignment="Stretch" Visibility="Collapsed"/>
+        <!--Кастыль-->
+        <Grid Grid.Row="4" Name="GridAuthorization"/>
+        <!--Кастыль-->
+        
+        <!--Кастыль-->
+        <Grid Grid.Row="0" Name="GridSecurityKeyChatAccessWinidow"/>
+        <!--Кастыль-->
+        
+        <!--Кастыль-->
+        <Grid Grid.Row="0" Name="GridSecurityKeyGeneratedWinidow"/>
+        <!--Кастыль-->
+        
+        <Grid Grid.Row="4" Name="GridMain" Visibility="Hidden">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" MinWidth="350"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="3*" MinWidth="650"/>
+            </Grid.ColumnDefinitions>
+
+            <!--<TextBlock Grid.Column="0" FontSize="16" Foreground="Gray" Text="{DynamicResource Common_ComingSoon}" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
+            <Grid Grid.Column="0" Name="GridLeftWorkspace"/>
+            
+            <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="5" BorderBrush="Silver" Background="Transparent"/>
+
+            <Grid Grid.Column="2" Name="GridRightWorkspace"/>
+
+        </Grid>
+
+        <view:ViewProcess Grid.RowSpan="5" x:Name="ViewProcessMain" Visibility="Hidden"/>
+
+    </Grid> 
+</Window>

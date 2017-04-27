@@ -1,0 +1,81 @@
+﻿<!--
+//  Copyright (C) 2016, Telco Cloud Trading & Logistic Ltd
+//
+//  This file is part of dodicall.
+//  dodicall is free software : you can redistribute it and / or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//
+//  dodicall is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with dodicall.If not, see<http://www.gnu.org/licenses/> .
+-->
+
+<Window x:Class="dodicall.Window.WindowCallActive"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:dodicall.Window"
+        xmlns:converter="clr-namespace:dodicall.Converter"
+        mc:Ignorable="d"
+        Style="{StaticResource VS2012WindowCallStyle}" ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen" Height="135" Width="460" ShowInTaskbar="False" Topmost="True" MouseDoubleClick="WindowCall_OnMouseDoubleClick">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.ColumnSpan="4" Background="Gray" Opacity="0.7"/>
+
+        <Grid Grid.Column="0" Margin="12" Height="56" Width="56">
+            <Image Source="{Binding CurrentModelCall.Avatar}"/>
+            <Image HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="25" Source="/dodicall;component/Resources/IconTray_small.png" Visibility="{Binding Path=CurrentModelCall.IsDodicall, Converter={converter:ConverterBoolToVisibilityHidden}}"/>
+        </Grid>
+
+        <Grid Grid.Column="1" Margin="0,10,10,10">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Margin="0,8,0,0" FontSize="14" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" Text="{Binding CurrentModelCall.Title}"/>
+            <StackPanel Grid.Row="1" Margin="3,0,0,8" Orientation="Horizontal">
+                <Image Margin="0,0,10,0" Name="ImageSrtp" Height="17" Width="13" VerticalAlignment="Center" Visibility="Collapsed" Source="/dodicall;component/Resources/LockWhite.png"/>
+                <TextBlock Name="TextBlockDirection" FontSize="14" Foreground="White" VerticalAlignment="Center" Text="{Binding CurrentModelCall.ModelEnumCallDirectionObj.Name}"/>
+                <TextBlock Name="TextBlockDuration" Foreground="White" FontSize="14" VerticalAlignment="Center" Visibility="Hidden" Text="{Binding Duration}"/>
+            </StackPanel>
+        </Grid>
+
+        <Image Grid.Column="2" Margin="12,0,0,0" Name="ImageMicrophoneOn" Width="57" Height="57" Style="{StaticResource ImageStyleButton}" Visibility="Collapsed" Source="/dodicall;component/Resources/mic.png">
+            <Image.InputBindings>
+                <MouseBinding Gesture="LeftClick" Command="{Binding CommandMuteMicrophone}"/>
+            </Image.InputBindings>
+        </Image>
+
+        <Image Grid.Column="2" Margin="12,0,0,0" Name="ImageMicrophoneOff" Width="57" Height="57" Style="{StaticResource ImageStyleButton}" Visibility="Collapsed" Source="/dodicall;component/Resources/mic_off.png">
+            <Image.InputBindings>
+                <MouseBinding Gesture="LeftClick" Command="{Binding CommandMuteMicrophone}"/>
+            </Image.InputBindings>
+        </Image>
+
+        <Image Grid.Column="2" Margin="12,0,0,0" Name="ImageAccept" Width="57" Height="57" Style="{StaticResource ImageStyleButton}" Visibility="Collapsed" Source="/dodicall;component/Resources/accept.png">
+            <Image.InputBindings>
+                <MouseBinding Gesture="LeftClick" Command="{Binding CommandAcceptCall}"/>
+            </Image.InputBindings>
+        </Image>
+        
+        <Image Grid.Column="3" Margin="12" Width="56" Height="55" Style="{StaticResource ImageStyleButton}" Source="/dodicall;component/Resources/decline.png">
+            <Image.InputBindings>
+                <MouseBinding Gesture="LeftClick" Command="{Binding CommandHangupCall}"/>
+            </Image.InputBindings>
+        </Image>
+    </Grid>
+</Window>

@@ -1,0 +1,3 @@
+C:\Git\dodicall-windows-app\DodicallWindowsApp\DAL\bin\Release\DAL.dll
+C:\Git\dodicall-windows-app\DodicallWindowsApp\DAL\bin\Release\DodicallLogic.dll
+C:\Git\dodicall-windows-app\DodicallWindowsApp\DAL\obj\Release\DAL.dll

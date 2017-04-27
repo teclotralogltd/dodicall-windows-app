@@ -1,0 +1,85 @@
+﻿<!--
+//  Copyright (C) 2016, Telco Cloud Trading & Logistic Ltd
+//
+//  This file is part of dodicall.
+//  dodicall is free software : you can redistribute it and / or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//
+//  dodicall is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with dodicall.If not, see<http://www.gnu.org/licenses/> .
+-->
+
+<UserControl x:Class="dodicall.View.ViewSelectionContact"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:dodicall.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="60"/>    
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="WhiteSmoke">
+            <TextBox Name="TextBoxSearch" Margin="8" Text="{Binding ContactListFilter, UpdateSourceTrigger=PropertyChanged}" BorderBrush="Transparent" GotFocus="TextBoxSearch_GotFocus" LostFocus="TextBoxSearch_LostFocus"/>
+            <TextBlock Name="TextBlockSearch" Margin="16,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Silver" FontSize="14" Text="{DynamicResource ViewSelectionContact_Search}" MouseLeftButtonDown="TextBlockSearch_MouseLeftButtonDown"/>
+            <Image Width="12" Margin="0,0,16,0" HorizontalAlignment="Right" Source="/dodicall;component/Resources/search.png"/>
+        </Grid>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel Name="StackPanelInviteControl"/>
+        </ScrollViewer>
+        <Rectangle Grid.Row="2" Name="RectangleMessage1" Height="1" Fill="DarkGray" Margin="10,0,10,0"/>
+        <ScrollViewer Grid.Row="3" Name="ScrollChatUserList" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+            <ItemsControl Name="ItemsControlChatUserList" HorizontalAlignment="Left"  ItemsSource="{Binding SelectedModelContactList}" >
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel HorizontalAlignment="Left"  >
+                        </WrapPanel>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Height="20" Margin="2,2,2,2" Name="ChatMemberDetail">
+                            <Rectangle Fill="WhiteSmoke" RadiusX="10" RadiusY="10" />
+                            <StackPanel Orientation="Horizontal">
+                                <Ellipse Height="6" Width="6" Name="EllipseStatus" Margin="6,6,0,6" HorizontalAlignment="Left" Fill="{Binding ModelEnumUserBaseStatusObj.Color}" />
+                                <TextBlock Margin="0,0,0,0" Name="TextBlockFullName" HorizontalAlignment="Left" Text="{Binding FullName}" />
+                                <Image Source="/dodicall;component/Resources/revoke_contact.png" Width="15" Height="15" HorizontalAlignment="Right" Margin="5,0,3,0" MouseLeftButtonDown="RevokeCheckedChatMember_MouseDown" />
+                            </StackPanel>
+                        </Grid>
+                        <DataTemplate.Triggers>
+                            <DataTrigger Binding="{Binding IsAccessStatus}" Value="false">
+                                <Setter TargetName="EllipseStatus" Property="Visibility" Value="Collapsed"/>
+                                <Setter TargetName="TextBlockFullName" Property="Margin" Value="6,0,6,0"/>
+                            </DataTrigger>
+                        </DataTemplate.Triggers>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+
+        <Rectangle Grid.Row="4" Name="RectangleMessage" Height="1" Fill="DarkGray" Margin="10,0,10,0"/>
+        <Grid Grid.Row="6">
+            <StackPanel Margin="10" Orientation="Horizontal" VerticalAlignment="Center">
+                <TextBlock Text="{DynamicResource ViewSelectionContact_Selected}"/>
+                <TextBlock Name="TextBlockCountSelected" Margin="5,0,5,0" Foreground="Red"/>
+                <TextBlock Text="{Binding CountSelectedModelContact}"/>
+            </StackPanel>
+            <Button Name="ButtonOk" Margin="10" Height="30" Width="130" HorizontalAlignment="Right" Content="{DynamicResource ViewSelectionContact_CreateChat}" Click="ButtonOk_OnClick"/>
+        </Grid>
+    </Grid>
+</UserControl>

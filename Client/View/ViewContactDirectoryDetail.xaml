@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="dodicall.View.ViewContactDirectoryDetail"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:dodicall.View"
+             xmlns:converter="clr-namespace:dodicall.Converter"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Height="32" Background="WhiteSmoke">
+            <Button HorizontalContentAlignment="Left" Click="ButtonBackToSearchResult_OnClick">
+                <StackPanel Orientation="Horizontal">
+                    <Image Height="9" Margin="0,0,5,0" Source="/dodicall;component/Resources/back.png"/>
+                    <TextBlock Foreground="Silver" FontSize="14" FontWeight="Bold" Text="{DynamicResource ViewContactDirectoryDetail_BackToSearchResult}"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+
+        <ScrollViewer Grid.Row="1" Margin="10" Name="ScrollViewerMain">
+            <Grid Name="GridRequestInviteCard">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Margin="25" Height="124" Width="124">
+                    <Image Source="{Binding CurrentModelContact.Avatar}"/>
+                    <Image HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="50" Width="50" Source="/dodicall;component/Resources/IconTray_small.png"/>
+                </Grid>
+                <Grid Grid.Row="1" HorizontalAlignment="Center">
+                    <StackPanel Name="StackPanelBlocked" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Visibility="Hidden">
+                        <Image Height="9" Margin="0,0,5,0" Source="/dodicall;component/Resources/blocked.png"/>
+                        <TextBlock Foreground="Silver" FontSize="14" Text="{DynamicResource ViewContactDirectoryDetail_Blocked}"/>
+                    </StackPanel>
+                    <TextBlock Name="TextBlockSentRequest" Foreground="Silver" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{DynamicResource ViewContactDirectoryDetail_SentRequest}" Visibility="Hidden"/>
+                    <Button Name="ButtonSendRequest" Width="210" Margin="10" Style="{StaticResource ButtonStyleRedCircle}" FontWeight="Bold" Content="{DynamicResource ViewContactDirectoryDetail_SendRequest}" Command="{Binding CommandSendRequest}"/>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Margin="0,8,8,0" FontWeight="Bold" FontSize="14" Text="{Binding CurrentModelContact.FullName}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Orientation="Horizontal">
+                        <Image Margin="15" Height="20" Name="ImageServicesMore" Source="/dodicall;component/Resources/sevices.png"/>
+                        <Image Margin="15" Height="20" Source="/dodicall;component/Resources/more.png" MouseLeftButtonDown="ImageAdditionalService_MouseLeftButtonDown" Visibility="Collapsed">
+                            <Image.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Name="MenuItemBlock" Header="{DynamicResource ViewContactDirectoryDetail_Block}" Command="{Binding CommandBlock}" Visibility="Collapsed"/>
+                                    <MenuItem Name="MenuItemUnblock" Header="{DynamicResource ViewContactDirectoryDetail_Unblock}" Command="{Binding CommandUnblock}" Visibility="Collapsed"/>
+                                </ContextMenu>
+                            </Image.ContextMenu>
+                        </Image>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Name="LabelContact" Height="30" Foreground="Red" FontSize="12" FontWeight="Bold" Content="{DynamicResource ViewContactDetail_Contact}"/>
+                    <Rectangle Grid.Row="1" Name="RectangleContact" Height="1" Fill="Silver" Visibility="{Binding Path=CurrentModelContact.IsAccessStatus, Converter={converter:ConverterBoolToVisibilityCollapsed}}"/>
+                    <StackPanel Grid.Row="2" Name="StackPanelContact" Visibility="{Binding Path=CurrentModelContact.IsDodicall, Converter={converter:ConverterBoolToVisibilityCollapsed}}"/>
+                    <Label Grid.Row="3" Name="LabelContactExtra" VerticalAlignment="Center" Foreground="Red" FontSize="12"  FontWeight="Bold" Content="{DynamicResource ViewContactDetail_ExtraContact}"/>
+                    <Rectangle Grid.Row="4" Name="RectangleContactExtra" Height="1" Fill="Silver"/>
+                    <StackPanel Grid.Row="5" Name="StackPanelContactExtra"/>
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
+

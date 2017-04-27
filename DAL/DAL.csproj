@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1A3F76A7-FEC7-471A-BB9D-6CD567252A9F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DAL</RootNamespace>
+    <AssemblyName>DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;Release</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'InternalUse|AnyCPU'">
+    <OutputPath>bin\InternalUse\</OutputPath>
+    <DefineConstants>TRACE;InternalUse</DefineConstants>
+    <Optimize>true</Optimize>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestBuild|AnyCPU'">
+    <OutputPath>bin\TestBuild\</OutputPath>
+    <DefineConstants>TRACE;TestBuild</DefineConstants>
+    <Optimize>true</Optimize>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DodicallLogic, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\BridgeDLL\DodicallLogic.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\AbstractDataSource.cs" />
+    <Compile Include="Abstract\AbstractLocalization.cs" />
+    <Compile Include="Abstract\AbstractModel.cs" />
+    <Compile Include="Abstract\AbstractModelEnum.cs" />
+    <Compile Include="Abstract\AbstractNotifyPropertyChanged.cs" />
+    <Compile Include="Abstract\AbstractViewModel.cs" />
+    <Compile Include="Abstract\Command.cs" />
+    <Compile Include="Callback\PackageModelContactStatus.cs" />
+    <Compile Include="Callback\PackageModelContactSubscription.cs" />
+    <Compile Include="Enum\EnumResultLogin.cs" />
+    <Compile Include="Enum\EnumVersionOS.cs" />
+    <Compile Include="Enum\EnumWebBrowser.cs" />
+    <Compile Include="Localization\LocalizationApp.cs" />
+    <Compile Include="ModelEnum\CommonModelEnum.cs" />
+    <Compile Include="ModelEnum\ModelEnumChatMessageQuoteType.cs" />
+    <Compile Include="ModelEnum\ModelEnumChatMessageSecurityLevel.cs" />
+    <Compile Include="ModelEnum\ModelEnumNetworkTechnology.cs" />
+    <Compile Include="ModelEnum\ModelEnumServerConnectionState.cs" />
+    <Compile Include="Model\ModelCall.cs" />
+    <Compile Include="ModelEnum\ModelEnumCallAddressType.cs" />
+    <Compile Include="ModelEnum\ModelEnumCallDirection.cs" />
+    <Compile Include="ModelEnum\ModelEnumCallEndMode.cs" />
+    <Compile Include="Model\ModelCallHistory.cs" />
+    <Compile Include="Model\ModelCallHistoryEntry.cs" />
+    <Compile Include="ModelEnum\ModelEnumCallHistoryEntryResult.cs" />
+    <Compile Include="Model\ModelCallHistoryPeer.cs" />
+    <Compile Include="ModelEnum\ModelEnumCallHistorySourceType.cs" />
+    <Compile Include="ModelEnum\ModelEnumCallHistoryStatusType.cs" />
+    <Compile Include="ModelEnum\ModelEnumCallState.cs" />
+    <Compile Include="Model\ModelCallStatistics.cs" />
+    <Compile Include="Model\ModelChat.cs" />
+    <Compile Include="Model\ModelChatMessage.cs" />
+    <Compile Include="ModelEnum\ModelEnumChatMessageType.cs" />
+    <Compile Include="ModelEnum\ModelEnumChatNotificationType.cs" />
+    <Compile Include="Model\ModelCodecSettings.cs" />
+    <Compile Include="Model\ModelContact.cs" />
+    <Compile Include="Model\ModelContactSubscription.cs" />
+    <Compile Include="ModelEnum\ModelEnumCallHistoryAddressType.cs" />
+    <Compile Include="Model\ModelConnectState.cs" />
+    <Compile Include="Model\ModelNotificationData.cs" />
+    <Compile Include="Model\ModelPeer.cs" />
+    <Compile Include="ModelEnum\ModelEnumSubscriptionState.cs" />
+    <Compile Include="ModelEnum\ModelEnumSubscriptionStatus.cs" />
+    <Compile Include="Model\ModelSystemMessage.cs" />
+    <Compile Include="Model\ModelUserContact.cs" />
+    <Compile Include="ModelEnum\ModelEnumCurrency.cs" />
+    <Compile Include="ModelEnum\ModelEnumEchoCancellationMode.cs" />
+    <Compile Include="Model\ModelLanguage.cs" />
+    <Compile Include="Model\ModelLogScope.cs" />
+    <Compile Include="Model\ModelServerArea.cs" />
+    <Compile Include="ModelEnum\ModelEnumTheme.cs" />
+    <Compile Include="Model\ModelLogin.cs" />
+    <Compile Include="Model\ModelUser.cs" />
+    <Compile Include="Model\ModelUserAccount.cs" />
+    <Compile Include="ModelEnum\ModelEnumUserBaseStatus.cs" />
+    <Compile Include="ModelEnum\ModelEnumUserContactType.cs" />
+    <Compile Include="Model\ModelUserSettings.cs" />
+    <Compile Include="ModelEnum\ModelEnumUserSettingsGroup.cs" />
+    <Compile Include="ModelEnum\ModelEnumVideoSizeCell.cs" />
+    <Compile Include="ModelEnum\ModelEnumVideoSizeWifi.cs" />
+    <Compile Include="ModelEnum\ModelEnumVoipEncryption.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\UtilityDate.cs" />
+    <Compile Include="Utility\UtilityPicture.cs" />
+    <Compile Include="Utility\UtilitySecurity.cs" />
+    <Compile Include="Utility\UtilitySystem.cs" />
+    <Compile Include="Utility\UtilityWeb.cs" />
+    <Compile Include="ViewModel\ViewModelCallHistory.cs" />
+    <Compile Include="ViewModel\ViewModelCallActive.cs" />
+    <Compile Include="ViewModel\ViewModelCallHistoryDetail.cs" />
+    <Compile Include="ViewModel\ViewModelCallRedirect.cs" />
+    <Compile Include="ViewModel\ViewModelChat.cs" />
+    <Compile Include="ViewModel\ViewModelChatDetail.cs" />
+    <Compile Include="ViewModel\ViewModelChatRedirect.cs" />
+    <Compile Include="ViewModel\ViewModelContact.cs" />
+    <Compile Include="ViewModel\ViewModelContactDetail.cs" />
+    <Compile Include="ViewModel\ViewModelContactDirectory.cs" />
+    <Compile Include="ViewModel\ViewModelContactRequestInvite.cs" />
+    <Compile Include="ViewModel\ViewModelDialpad.cs" />
+    <Compile Include="ViewModel\ViewModelEventHandlerArgs.cs" />
+    <Compile Include="ViewModel\ViewModelInformation.cs" />
+    <Compile Include="ViewModel\ViewModelManualContact.cs" />
+    <Compile Include="ViewModel\ViewModelPasswordBox.cs" />
+    <Compile Include="ViewModel\ViewModelSecurityKeyChatAccess.cs" />
+    <Compile Include="ViewModel\ViewModelSecurityKeyGenerated.cs" />
+    <Compile Include="ViewModel\ViewModelSelectionContact.cs" />
+    <Compile Include="ViewModel\ViewModelTray.cs" />
+    <Compile Include="ViewModel\ViewModelUser.cs" />
+    <Compile Include="ViewModel\ViewModelUserAuthorization.cs" />
+    <Compile Include="ViewModel\ViewModelUserDetail.cs" />
+    <Compile Include="ViewModel\ViewModelUserSettings.cs" />
+    <Compile Include="ViewModel\ViewModelUserStatus.cs" />
+    <Compile Include="WrapperBridge\DataSourceCall.cs" />
+    <Compile Include="WrapperBridge\DataSourceChat.cs" />
+    <Compile Include="WrapperBridge\DataSourceContact.cs" />
+    <Compile Include="WrapperBridge\DataSourceLogScope.cs" />
+    <Compile Include="WrapperBridge\DataSourceLogin.cs" />
+    <Compile Include="WrapperBridge\DataSourceSecurity.cs" />
+    <Compile Include="WrapperBridge\DataSourceUser.cs" />
+    <Compile Include="WrapperBridge\DataSourceUserSettings.cs" />
+    <Compile Include="WrapperBridge\DataSourceUtility.cs" />
+    <Compile Include="Callback\CallbackRouter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Flag\GB.png" />
+    <EmbeddedResource Include="Resources\Flag\RUS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\NoPhoto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\NoPhotoGroup.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

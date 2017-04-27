@@ -1,0 +1,336 @@
+﻿<!--
+//  Copyright (C) 2016, Telco Cloud Trading & Logistic Ltd
+//
+//  This file is part of dodicall.
+//  dodicall is free software : you can redistribute it and / or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//
+//  dodicall is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with dodicall.If not, see<http://www.gnu.org/licenses/> .
+-->
+
+<UserControl x:Class="dodicall.View.ViewCallHistoryDetail"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:dodicall.View"
+             xmlns:converter="clr-namespace:dodicall.Converter"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="500">
+    <Grid>
+        <Grid Name="GridHistoryDitailContact" Visibility="Hidden">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Name="GridButtonBack" Height="32" Background="WhiteSmoke">
+                <Button HorizontalContentAlignment="Left" Click="ButtonBack_OnClick">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="9" Margin="0,0,5,0" Source="/dodicall;component/Resources/back.png"/>
+                        <TextBlock Foreground="Silver" FontSize="14" FontWeight="Bold" Text="{DynamicResource ViewContactDetail_Back}"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+        </Grid> 
+        <Grid Name="GridHistoryDetail">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="56"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/> 
+            </Grid.RowDefinitions> 
+            <Grid Margin="0,3,3,3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid Name="HeaderContact" Grid.Column="0" MouseLeftButtonDown="HeaderContact_MouseLeftButtonDown">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0" Margin="10,0,10,0" Height="36" Width="36">
+                        <Image Source="{Binding ModelCallHistoryPeerObj.ModelPeerObj.Avatar}"/>
+                        <Image HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="15" Width="15" Source="/dodicall;component/Resources/IconTray_small.png"
+                       Visibility="{Binding ModelCallHistoryPeerObj.ModelPeerObj.IsDodicall, Converter={converter:ConverterBoolToVisibilityCollapsed}}"/>
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <!--<TextBlock Margin="0,8,8,0" Name="TextBlockFullName" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" Text="{Binding ModelContactObj.FullName}"/>-->
+                        <TextBlock Grid.Row="0" Name="TextBlockFullName" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" Text="{Binding Title}">
+                            <TextBlock.Style>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ShowStatusPanel}" Value="true">
+                                            <Setter Property="Margin" Value="0,8,8,0"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding ShowStatusPanel}" Value="false">
+                                            <Setter Property="Margin" Value="0"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                        <Grid Grid.Row="1" Name="GridStatus">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Orientation="Horizontal">
+                                <Ellipse Margin="3,7,5,10" Height="6" Width="6" Name="EllipseStatus" Fill="{Binding ModelContactObj.ModelEnumUserBaseStatusObj.Color}"/>
+                                <TextBlock Margin="5,3,0,5" Text="{Binding ModelContactObj.ModelEnumUserBaseStatusObj.Name}"/>
+                            </StackPanel>
+                            <TextBlock Grid.Column="1" Margin="0,3,0,5" Text="{Binding ModelContactObj.UserExtendedStatusForFullStatus}" TextTrimming="CharacterEllipsis"/>
+                            <Grid.Style>
+                                <Style TargetType="{x:Type Grid}">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ShowStatusPanel}" Value="true">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding ShowStatusPanel}" Value="false">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Grid.Style>
+                        </Grid>
+                        <StackPanel Grid.Row="2" Name="StackPanelBlocked" Margin="0,0,0,5" VerticalAlignment="Center" Orientation="Horizontal">
+                            <Image Height="9" Margin="0,0,5,0" Source="/dodicall;component/Resources/blocked.png"/>
+                            <TextBlock Foreground="Silver" FontSize="12" Text="{DynamicResource ViewContact_Blocked}"/>
+                            <StackPanel.Style>
+                                <Style TargetType="{x:Type StackPanel}">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ShowBlockedPanel}" Value="true">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding ShowBlockedPanel}" Value="false">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </StackPanel.Style>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+                <StackPanel Grid.Column="1" Name="StackPanelServices" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Name="ButtonPhone" Width="50" Click="ButtonPhone_OnClick">
+                        <Image Height="19" Name="ImagePhone">
+                            <Image.Style>
+                                <Style TargetType="{x:Type Image}">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ModelContactObj.ModelEnumUserBaseStatusObj.Code}" Value="1">
+                                            <Setter Property="Source" Value="/dodicall;component/Resources/phone_online.png"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding ModelContactObj.ModelEnumUserBaseStatusObj.Code}" Value="3">
+                                            <Setter Property="Source" Value="/dodicall;component/Resources/phone_dnd.png"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding ModelContactObj.ModelEnumUserBaseStatusObj.Code}" Value="0">
+                                            <Setter Property="Source" Value="/dodicall;component/Resources/phone_offline.png"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyleTransparent}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ShowCallButton}" Value="true">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding ShowCallButton}" Value="false">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button Name="ButtonVideo" Width="50" Click="ShowComingSoon">
+                        <Image Margin="0,10,0,10" Height="20" Name="ImageVideo">
+                            <Image.Style>
+                                <Style TargetType="{x:Type Image}">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ModelContactObj.ModelEnumUserBaseStatusObj.Code}" Value="1">
+                                            <Setter Property="Source" Value="/dodicall;component/Resources/video_online.png"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding ModelContactObj.ModelEnumUserBaseStatusObj.Code}" Value="3">
+                                            <Setter Property="Source" Value="/dodicall;component/Resources/video_dnd.png"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding ModelContactObj.ModelEnumUserBaseStatusObj.Code}" Value="0">
+                                            <Setter Property="Source" Value="/dodicall;component/Resources/video_offline.png"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyleTransparent}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ShowVideoButton}" Value="true">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding ShowVideoButton}" Value="false">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button x:Name="ButtonChat" Width="50" Click="ButtonChat_OnClick">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyleTransparent}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ShowChatButton}" Value="true">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding ShowChatButton}" Value="false">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Image Margin="0,15,0,15" Height="19" x:Name="ImageChat">
+                            <Image.Style>
+                                <Style TargetType="{x:Type Image}">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ModelContactObj.ModelEnumUserBaseStatusObj.Code}" Value="1">
+                                            <Setter Property="Source" Value="/dodicall;component/Resources/chat_online.png"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding ModelContactObj.ModelEnumUserBaseStatusObj.Code}" Value="3">
+                                            <Setter Property="Source" Value="/dodicall;component/Resources/chat_dnd.png"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding ModelContactObj.ModelEnumUserBaseStatusObj.Code}" Value="0">
+                                            <Setter Property="Source" Value="/dodicall;component/Resources/chat_offline.png"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                    </Button>
+                    <Button Name="ButtonPhonePSNT" Width="50" Click="ButtonPhonePSNT_OnClick">
+                        <Image Margin="0,10,0,10" Height="24" Width="25" Name ="ImagePhonepstn" Source="/dodicall;component/Resources/phone_pstn.png"/>
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyleTransparent}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ShowCallPSNTButton}" Value="true">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding ShowCallPSNTButton}" Value="false">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button Name="ButtonSendRequest" Width="50" Command="{Binding CommandSendRequest}">
+                        <Image Margin="0,10,0,10" Height="24" Width="25" Name ="ImageSendReqest" Source="/dodicall;component/Resources/send_request.png"/>
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyleTransparent}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ShowSendRequestButton}" Value="true">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding ShowSendRequestButton}" Value="false">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button Name="ButtonSaveAsNew" Width="50" Click="ButtonSaveAsNew_OnClick">
+                        <Image Margin="0,10,0,10" Height="24" Width="25" Name ="ImageSaveAsNew" Source="/dodicall;component/Resources/save_as_new.png"/>
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonStyleTransparent}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ShowSaveAsNewButton}" Value="true">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding ShowSaveAsNewButton}" Value="false">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </StackPanel>
+            </Grid>
+            <Rectangle Grid.Row="1" Height="1" Fill="Silver"/>
+            <ListBox Grid.Row="2" Margin="0,10,0,10" Name="ListBoxModelCallHistoryEntry" ItemsSource="{Binding ModelCallHistoryPeerObj.ListModelCallHistoryEntry}" BorderThickness="0">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Height="50">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Name="CallHistoryEntryImage" Height="15" Width="15">
+                                <Image.Style>
+                                    <Style TargetType="{x:Type Image}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ModelEnumCallHistoryEntryResultObj.Code}" Value="0">
+                                                <Setter Property="Source" Value="/dodicall;component/Resources/IncomingSuccessfulBig.png"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding ModelEnumCallHistoryEntryResultObj.Code}" Value="1">
+                                                <Setter Property="Source" Value="/dodicall;component/Resources/IncomingFailBig.png"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding ModelEnumCallHistoryEntryResultObj.Code}" Value="2">
+                                                <Setter Property="Source" Value="/dodicall;component/Resources/OutgoingSuccessfulBig.png"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding ModelEnumCallHistoryEntryResultObj.Code}" Value="3">
+                                                <Setter Property="Source" Value="/dodicall;component/Resources/OutgoingFailBig.png"/>
+                                            </DataTrigger> 
+                                        </Style.Triggers>
+                                    </Style>
+                                </Image.Style>
+                            </Image>
+                            <Grid Name="GridInfo" VerticalAlignment="Center" Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Name="textBlockTypeCall" Margin="0,0,0,5" FontSize="11" Foreground="Gray" Text="{Binding ModelEnumCallHistoryEntryResultObj.Name}"></TextBlock>
+                                <StackPanel Name="StackPanelDuration" Orientation="Horizontal" Grid.Row="1">
+                                    <Image Height="17" Width="12" Margin="0,0,6,0" Source="/dodicall;component/Resources/srtpGray.png">
+                                        <Image.Style>
+                                            <Style TargetType="{x:Type Image}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding ModelEnumVoipEncryptionObj.Code}" Value="1">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding ModelEnumVoipEncryptionObj.Code}" Value="0">
+                                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Image.Style>
+                                    </Image>
+                                    <TextBlock Name="TextBlockDuring" FontSize="11" Foreground="Gray" VerticalAlignment="Center" Text="{Binding DurationSecString}"></TextBlock>
+                                </StackPanel>
+                            </Grid>
+                            <TextBlock Grid.Column="2" Name="TextBlockDateCall" Margin="0,5,15,0" FontSize="11" Foreground="Gray" Text="{Binding StartTimeString}"></TextBlock>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem" BasedOn="{StaticResource ListBoxItemStyle}"> 
+                        <Setter Property="Focusable" Value="False"/>
+                        <Setter Property="Padding" Value="0"/>
+                        <Setter Property="IsHitTestVisible" Value="False" />
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox> 
+        </Grid>
+    </Grid>
+</UserControl>

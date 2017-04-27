@@ -1,0 +1,391 @@
+﻿<!--
+//  Copyright (C) 2016, Telco Cloud Trading & Logistic Ltd
+//
+//  This file is part of dodicall.
+//  dodicall is free software : you can redistribute it and / or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//
+//  dodicall is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with dodicall.If not, see<http://www.gnu.org/licenses/> .
+-->
+
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:dodicall.Resources"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Common -->
+    <s:String x:Key="Common_ComingSoon">Будет реализовано позже</s:String>
+    <s:String x:Key="Common_Save">Сохранить</s:String>
+    <s:String x:Key="Common_Cancel">Отмена</s:String>
+
+    <!-- WindowMain -->
+    <s:String x:Key="WindowMain_ApplicationWork">dodicall продолжает работать !</s:String>
+    <s:String x:Key="WindowMain_MenuAbout">О программе Dodicall</s:String>
+    <s:String x:Key="WindowMain_MenuSettings">Настройки</s:String>
+    <s:String x:Key="WindowMain_MenuErrorReport">Сообщить о проблеме</s:String>
+    <s:String x:Key="WindowMain_MenuExit">Выйти из dodicall</s:String>
+    <s:String x:Key="WindowMain_MenuClose">Закрыть Dodicall</s:String>
+    <s:String x:Key="WindowMain_MenuContacts">Контакты</s:String>
+    <s:String x:Key="WindowMain_MenuContacts_SearchingNewContacts">Поиск новых контактов</s:String>
+    <s:String x:Key="WindowMain_MenuContacts_SearchingMyContacts">Поиск в моих контактах</s:String>
+    <s:String x:Key="WindowMain_MenuContacts_CreateContact">Создать контакт</s:String> 
+    <s:String x:Key="WindowMain_MenuContacts_ShowProfile">Показать профиль</s:String>
+    <s:String x:Key="WindowMain_MenuContacts_Edit">Редактировать</s:String>
+    <s:String x:Key="WindowMain_MenuContacts_AddToWhiteList">Добавить в Белый список</s:String>
+    <s:String x:Key="WindowMain_MenuContacts_Call">Позвонить</s:String>
+    <s:String x:Key="WindowMain_MenuContacts_SendMessage">Отправить сообщение</s:String>  
+    <s:String x:Key="WindowMain_MenuContacts_BlockContact">Заблокировать</s:String>
+    <s:String x:Key="WindowMain_MenuContacts_DeleteContact">Удалить</s:String>
+    <s:String x:Key="WindowMain_MenuHistory">История</s:String>
+    <s:String x:Key="WindowMain_MenuHistory_FilterHistory">Фильтровать историю</s:String>
+    <s:String x:Key="WindowMain_MenuHistory_ClearHistory">Очистить всю историю</s:String>
+    <s:String x:Key="WindowMain_MenuChats">Чаты</s:String>
+    <s:String x:Key="WindowMain_MenuChats_CreateNewChat">Создать новый чат</s:String>
+    <s:String x:Key="WindowMain_MenuChats_MarkAllChatsAsRead">Отметить все чаты как прочитанные</s:String>
+    <s:String x:Key="WindowMain_MenuChats_Call">Позвонить</s:String>
+    <s:String x:Key="WindowMain_MenuChats_SendMessage">Отправить сообщение</s:String> 
+    <s:String x:Key="WindowMain_MenuChats_SendFile">Отправить файл</s:String>
+    <s:String x:Key="WindowMain_MenuChats_SendContact">Отправить контакт</s:String> 
+    <s:String x:Key="WindowMain_MenuChats_Rename">Переименовать</s:String>
+    <s:String x:Key="WindowMain_MenuChats_Members">Участники чата</s:String> 
+    <s:String x:Key="WindowMain_MenuChats_SignOutOfChat">Выйти из чата</s:String> 
+    <s:String x:Key="WindowMain_MenuChats_ClearChatHistory">Очистить историю чата</s:String>
+    <s:String x:Key="WindowMain_MenuChats_ClearAllChats">Очистить все чаты</s:String>
+    <s:String x:Key="WindowMain_MenuCall">Позвонить</s:String>
+    <s:String x:Key="WindowMain_MenuCall_DialNumber">Набрать номер</s:String>
+    <s:String x:Key="WindowMain_MenuCall_CreateConference">Создать конференцию</s:String>
+    <s:String x:Key="WindowMain_MenuCall_LearnTariff">Узнать тариф</s:String>
+    <s:String x:Key="WindowMain_MenuCall_SaveNewContact">Сохранить новый контакт</s:String>
+    <s:String x:Key="WindowMain_Services">Сервисы</s:String>
+
+    <!-- ViewUserAuthorization -->
+    <s:String x:Key="ViewUserAuthorization_WindowCaption">- Вход</s:String>
+    <s:String x:Key="ViewUserAuthorization_LoginText">Логин</s:String>
+    <s:String x:Key="ViewUserAuthorization_PasswordText">Пароль</s:String>
+    <s:String x:Key="ViewUserAuthorization_FailLoginText">Ошибка. Логин или пароль введены неверно</s:String>
+    <s:String x:Key="ViewUserAuthorization_SystemErrorText">Системная ошибка</s:String>
+    <s:String x:Key="ViewUserAuthorization_NoNetwork">Нет сети</s:String>
+    <s:String x:Key="ViewUserAuthorization_EnterButton">Войти</s:String>
+    <s:String x:Key="ViewUserAuthorization_AutostartCheckBox">запускать приложение при входе в систему</s:String>
+    <s:String x:Key="ViewUserAuthorization_AutoLoginCheckBox">автоматический вход</s:String>
+    <s:String x:Key="ViewUserAuthorization_ForgotPasswordButton">Забыли пароль ?</s:String>
+    <s:String x:Key="ViewUserAuthorization_SignUpButton">Зарегистрироваться</s:String>
+    <s:String x:Key="ViewUserAuthorization_VersionText">Версия</s:String>
+
+    <!-- ViewUserSettings -->
+    <s:String x:Key="ViewUserSettings_Title">- Настройки</s:String>
+    <s:String x:Key="ViewUserSettings_Status">Статус</s:String>
+    <s:String x:Key="ViewUserSettings_ExtendedStatus">Расширенный статус</s:String>
+    <s:String x:Key="ViewUserSettings_Enter">Вход</s:String>
+    <s:String x:Key="ViewUserSettings_AutoLogin">Автоматический вход</s:String>
+    <s:String x:Key="ViewUserSettings_Autostart">Запускать приложение при входе в систему</s:String>
+    <s:String x:Key="ViewUserSettings_Mode">Режим</s:String>
+    <s:String x:Key="ViewUserSettings_DoNotDesturbMode">Белый список</s:String>
+    <s:String x:Key="ViewUserSettings_Account">Учетные записи sip</s:String>
+    <s:String x:Key="ViewUserSettings_DefaultAccount">Уч. запись по умолчанию</s:String>
+    <s:String x:Key="ViewUserSettings_VoiceMessage">Голосовые сообщения (0/0)</s:String>
+    <s:String x:Key="ViewUserSettings_VoiceMessageStart">Старт</s:String>
+    <s:String x:Key="ViewUserSettings_Encryption">Шифрование</s:String>
+    <s:String x:Key="ViewUserSettings_VoipEncryption">Метод шифрования</s:String>
+    <s:String x:Key="ViewUserSettings_Video">Видео</s:String>
+    <s:String x:Key="ViewUserSettings_VideoEnabled">Разрешить видеовызовы</s:String>
+    <s:String x:Key="ViewUserSettings_VideoSizeWifi">Размер видео (WiFi)</s:String>
+    <s:String x:Key="ViewUserSettings_VideoSizeCell">Размер видео (Cell)</s:String>
+    <s:String x:Key="ViewUserSettings_EchoCancellation">Эхошумоподавление</s:String>
+    <s:String x:Key="ViewUserSettings_EchoCancellationMode">Эхошумоподавление</s:String>
+    <s:String x:Key="ViewUserSettings_Font">Шрифт</s:String>
+    <s:String x:Key="ViewUserSettings_FontSize">Размер шрифта</s:String>
+    <s:String x:Key="ViewUserSettings_ClearChat">Очистить чаты</s:String>
+    <s:String x:Key="ViewUserSettings_View">Вид</s:String>
+    <s:String x:Key="ViewUserSettings_Language">Язык</s:String>
+    <s:String x:Key="ViewUserSettings_Theme">Тема</s:String>
+    <s:String x:Key="ViewUserSettings_Information">Информация</s:String>
+    <s:String x:Key="ViewUserSettings_Reference">Ссылка</s:String>
+    <s:String x:Key="ViewUserSettings_About">О программе</s:String>
+    <s:String x:Key="ViewUserSettings_News">Что нового</s:String>
+    <s:String x:Key="ViewUserSettings_Problems">Известные проблемы</s:String> 
+    <s:String x:Key="ViewUserSettings_PrivacyPolicyUri">Политика конфиденциальности</s:String>
+    <s:String x:Key="ViewUserSettings_Help">Помощь</s:String>
+    <s:String x:Key="ViewUserSettings_Trace">Отладка</s:String>
+    <s:String x:Key="ViewUserSettings_TraceMode">Режим отладки</s:String>
+    <s:String x:Key="ViewUserSettings_Codecs">Кодеки</s:String>
+    <s:String x:Key="ViewUserSettings_CodecsAudioWifi">Кодеки Аудио (WiFi)</s:String>
+    <s:String x:Key="ViewUserSettings_CodecsAudioCell">Кодеки Аудио (Cell)</s:String>
+    <s:String x:Key="ViewUserSettings_CodecsVideo">Кодеки Видео</s:String>
+    <s:String x:Key="ViewUserSettings_Logs">Логи</s:String>
+    <s:String x:Key="ViewUserSettings_LogChat">Лог чата</s:String>
+    <s:String x:Key="ViewUserSettings_LogsDatabase">Лог базы данных</s:String>
+    <s:String x:Key="ViewUserSettings_LogRequest">Лог запросов</s:String>
+    <s:String x:Key="ViewUserSettings_LogVoip">Лог звонков</s:String>
+    <s:String x:Key="ViewUserSettings_LogHistoryCall">История звонков</s:String>
+    <s:String x:Key="ViewUserSettings_LogQualityCall">Лог качества звонков</s:String>
+    <s:String x:Key="ViewUserSettings_LogApplication">Лог программы</s:String>
+    <s:String x:Key="ViewUserSettings_LogTrace">Лог отладки</s:String>
+    <s:String x:Key="ViewUserSettings_LogClear">Очистить логи</s:String>
+    <s:String x:Key="ViewUserSettings_LogClearSuccessful">Логи успешно очищены</s:String>
+    <s:String x:Key="ViewUserSettings_LogOpen">Открыть</s:String>
+    <s:String x:Key="ViewUserSettings_Error">Ошибки</s:String>
+    <s:String x:Key="ViewUserSettings_ErrorReport">Отчет об ошибке</s:String>
+    <s:String x:Key="ViewUserSettings_ErrorSend">Отправить</s:String>
+    <s:String x:Key="ViewUserSettings_Save">Сохранить</s:String>
+    <s:String x:Key="ViewUserSettings_Cancel">Отмена</s:String>
+    <s:String x:Key="ViewUserSettings_DontSaveSettingsMessage">Настройки не сохранены. Сохранить ?</s:String>
+    <s:String x:Key="ViewUserSettings_MustAddContactsToTheWhitelist">Для включения настройки необходимо добавить контакты в белый список</s:String>
+    <s:String x:Key="ViewUserSettings_ReceiveIncomingCallsOnlyWhitelist">Вы будете получать входящие звонки только от пользователей из белого списка. Включить режим "белый список" ?</s:String>
+    <s:String x:Key="ViewUserSettings_InformationTraceMode">Режим отладки увеличивает объем данных приложения и использует персональные данные. Продолжить ?</s:String>
+    <s:String x:Key="ViewUserSettings_CopyToClipboard">Скопировать в буфер</s:String>
+    <s:String x:Key="ViewUserSettings_ScanQRCode">Сканировать QR код</s:String>
+    <s:String x:Key="ViewUserSettings_CopyFromClipBoard">Скопировать из буфера</s:String>
+    <s:String x:Key="ViewUserSettings_SaveAs">Сохранить как</s:String>
+    <s:String x:Key="ViewUserSettings_ExportEncryptionKey">Экспортировать ключ шифрования</s:String>
+    <s:String x:Key="ViewUserSettings_ImportEncryptionKey">Импортировать ключ шифрования</s:String>
+    <s:String x:Key="ViewUserSettings_Imported">Импортирован</s:String>
+    <s:String x:Key="ViewUserSettings_MinimumKeyLength">Минимальная длина ключа - 2048 символов</s:String>
+    <s:String x:Key="ViewUserSettings_TextEntered">Введено символов -</s:String>
+    <s:String x:Key="ViewUserSettings_Import">Импортировать</s:String>
+    <s:String x:Key="ViewUserSettings_PasteEncryptionKey">Вставьте скопированный ключ шифрования из буфера обмена</s:String>
+    <s:String x:Key="ViewUserSettings_ImportFail">Неверный ключ шифрования. Повторите попытку</s:String>
+    <s:String x:Key="ViewUserSettings_ExportSucced">Ваш ключ сохранен</s:String>
+    <s:String x:Key="ViewUserSettings_Refresh">Обновление ключа шифрования</s:String>
+    <s:String x:Key="ViewUserSettings_CreateNewKey">Создать новый ключ</s:String>
+    <s:String x:Key="ViewUserSettings_LostOldCorrespondence">Старая переписка будет утеряна</s:String>
+    <s:String x:Key="ViewUserSettings_AlertLostCorrespondence">При создании нового ключа шифрования доступ к старой переписке будет безвозвратно утерян</s:String> 
+
+    <!-- WindowMessageBox -->
+    <s:String x:Key="WindowMessageBox_Yes">Да</s:String>
+    <s:String x:Key="WindowMessageBox_No">Нет</s:String>
+    <s:String x:Key="WindowMessageBox_Cancel">Отмена</s:String>
+    <s:String x:Key="WindowMessageBox_Information">Информация</s:String>
+    <s:String x:Key="WindowMessageBox_Warning">Предупреждение</s:String>
+    <s:String x:Key="WindowMessageBox_Error">Ошибка</s:String>
+    <s:String x:Key="WindowMessageBox_Question">Вопрос</s:String>
+    <s:String x:Key="WindowMessageBox_Continue">Продолжить</s:String> 
+
+    <!-- ViewErrorReport -->
+    <s:String x:Key="ViewErrorReport_Title">Сообщение об ошибке</s:String>
+    <s:String x:Key="ViewErrorReport_Subject">Тема</s:String>
+    <s:String x:Key="ViewErrorReport_Description">Описание</s:String>
+    <s:String x:Key="ViewErrorReport_LogChat">Лог чата</s:String>
+    <s:String x:Key="ViewErrorReport_LogsDatabase">Лог базы данных</s:String>
+    <s:String x:Key="ViewErrorReport_LogRequest">Лог запросов</s:String>
+    <s:String x:Key="ViewErrorReport_LogVoip">Лог звонков</s:String>
+    <s:String x:Key="ViewErrorReport_LogHistoryCall">История звонков</s:String>
+    <s:String x:Key="ViewErrorReport_LogQualityCall">Лог качества звонков</s:String>
+    <s:String x:Key="ViewErrorReport_LogTrace">Лог отладки</s:String>
+    <s:String x:Key="ViewErrorReport_LogGui">Лог программы</s:String>
+    <s:String x:Key="ViewErrorReport_SendSuccessful">Спасибо ! Ваша информация принята. Номер заявки:</s:String>
+    <s:String x:Key="ViewErrorReport_SendFail">Извините ! Ваша информация не была принята.</s:String>
+    <s:String x:Key="ViewErrorReport_Send">Отправить</s:String>
+    <s:String x:Key="ViewErrorReport_Cancel">Отмена</s:String>
+    <s:String x:Key="ViewErrorReport_SubjectEmpty">Тема не заполнена.</s:String>
+    <s:String x:Key="ViewErrorReport_DescriptionEmpty">Описание не заполнено.</s:String>
+    <s:String x:Key="ViewErrorReport_ApplyQuestion">Вы хотете отправить сообщение об ошибке ?</s:String>
+
+    <!-- WindowInformation -->
+    <s:String x:Key="WindowInformation_AboutTitle">О программе</s:String>
+    <s:String x:Key="WindowInformation_AboutUrl"></s:String>
+    <s:String x:Key="WindowInformation_AboutVersion">Версия</s:String>
+    <s:String x:Key="WindowInformation_NewsTitle">Что нового</s:String>
+    <s:String x:Key="WindowInformation_NewsUrl"></s:String>
+    <s:String x:Key="WindowInformation_ProblemsTitle">Известные проблемы</s:String>
+    <s:String x:Key="WindowInformation_ProblemsUrl"></s:String>
+
+    <!-- ViewUserStatus -->
+    <s:String x:Key="ViewUserStatus_Title">Установить статус</s:String>
+
+    <!-- ViewUserDetail -->
+    <s:String x:Key="ViewUserDetail_MyContact">Мои контакты:</s:String>
+    <s:String x:Key="ViewUserDetail_ExtraContact">Дополнительные контакты:</s:String>
+    <s:String x:Key="ViewUserDetail_Phone">телефон</s:String>
+
+    <!-- ViewContact -->
+    <s:String x:Key="ViewContact_Contact">Контакты</s:String>
+    <s:String x:Key="ViewContact_History">История</s:String>
+    <s:String x:Key="ViewContact_Chat">Чаты</s:String>
+    <s:String x:Key="ViewContact_RequestInvite">Запросы и приглашения</s:String>
+    <s:String x:Key="ViewContact_FindNewContact">Поиск новых контактов</s:String>
+    <s:String x:Key="ViewContact_Call">Позвонить</s:String>
+    <s:String x:Key="ViewContact_Search">Поиск в моих контактах</s:String>
+    <s:String x:Key="ViewContact_AllContact">Все контакты</s:String>
+    <s:String x:Key="ViewContact_DodicallContact">dodicall</s:String>
+    <s:String x:Key="ViewContact_SavedContact">Сохраненные</s:String>
+    <s:String x:Key="ViewContact_BlockedContact">Заблокированные</s:String>
+    <s:String x:Key="ViewContact_WhiteContact">Белые</s:String>
+    <s:String x:Key="ViewContact_GroupContact">Группы</s:String>
+    <s:String x:Key="ViewContact_Blocked">Заблокирован</s:String>
+    <s:String x:Key="ViewContact_ContextMenuCall">Позвонить</s:String>
+    <s:String x:Key="ViewContact_ContextMenuWriteMessage">Написать сообщение</s:String>
+    <s:String x:Key="ViewContact_ContextMenuOpenProfile">Открыть профиль</s:String>
+    <s:String x:Key="ViewContact_ContextMenuEdit">Редактировать</s:String>
+    <s:String x:Key="ViewContact_ContextMenuAddToWhite">Добавить в белые</s:String>
+    <s:String x:Key="ViewContact_ContextMenuDeleteFromWhite">Удалить из белых</s:String>
+    <s:String x:Key="ViewContact_ContextMenuBlock">Заблокировать</s:String>
+    <s:String x:Key="ViewContact_ContextMenuUnblock">Разблокировать</s:String>
+    <s:String x:Key="ViewContact_ContextMenuDelete">Удалить</s:String>
+
+    <!-- ViewContactDetail -->
+    <s:String x:Key="ViewContactDetail_Contact">Контакты:</s:String>
+    <s:String x:Key="ViewContactDetail_ExtraContact">Дополнительные контакты:</s:String>
+    <s:String x:Key="ViewContactDetail_AddToWhite">Добавить в белые</s:String>
+    <s:String x:Key="ViewContactDetail_DeleteFromWhite">Удалить из белых</s:String>
+    <s:String x:Key="ViewContactDetail_Block">Заблокировать</s:String>
+    <s:String x:Key="ViewContactDetail_Delete">Удалить</s:String>
+    <s:String x:Key="ViewContactDetail_Phone">телефон</s:String>
+    <s:String x:Key="ViewContactDetail_SentRequest">Ваш запрос отправлен</s:String>
+    <s:String x:Key="ViewContactDetail_SendRequest">Добавить в контакты</s:String>
+    <s:String x:Key="ViewContactDetail_BackToSearchResult">Назад к результатам поиска</s:String>
+    <s:String x:Key="ViewContactDetail_Blocked">Пользователь заблокирован</s:String>
+    <s:String x:Key="ViewContactDetail_Unblock">Разблокировать</s:String>
+    <s:String x:Key="ViewContactDetail_Back">Назад</s:String>
+    <s:String x:Key="ViewContactDetail_UserWantAddToFriend">Пользователь хочет добавить Вас в контакты</s:String>
+    <s:String x:Key="ViewContactDetail_DeniedInvite">Отклонено</s:String>
+    <s:String x:Key="ViewContactDetail_ApplyInvite">Добавить</s:String>
+    <s:String x:Key="ViewContactDetail_DenyInvite">Отклонить</s:String>
+
+    <!-- WindowStartup -->
+    <s:String x:Key="WindowStartup_Open">Открыть dodicall</s:String>
+    <s:String x:Key="WindowStartup_Status">Статус</s:String>
+    <s:String x:Key="WindowStartup_Exit">Выйти</s:String>
+    <s:String x:Key="WindowStartup_Online">В сети</s:String>
+    <s:String x:Key="WindowStartup_Dnd">Не беспокоить</s:String>
+    <s:String x:Key="WindowStartup_Hidden">Невидимый</s:String>
+    <s:String x:Key="WindowStartup_Offline">Не в сети</s:String>
+    <s:String x:Key="WindowStartup_SetStatus">Установить статус</s:String>
+
+    <!-- ViewPasswordBox -->
+    <s:String x:Key="ViewPasswordBox_EnterPassword">Введите пароль от учетной записи</s:String>
+    <s:String x:Key="ViewPasswordBox_IncorrectPassword">Пароль введен неверно</s:String>
+    <s:String x:Key="ViewPasswordBox_ExportEncryptionKey">Экспортировать ключ шифрования</s:String>
+    <s:String x:Key="ViewPasswordBox_ImportEncryptionKey">Импортировать ключ шифрования</s:String>
+    <s:String x:Key="ViewPasswordBox_Export">Экспортировать</s:String>
+    <s:String x:Key="ViewPasswordBox_Import">Импортировать</s:String>
+    <s:String x:Key="ViewPasswordBox_CreateNewKey">Создать новый ключ</s:String>
+    <s:String x:Key="ViewPasswordBox_CreateNewKeyTitle">- Создать новый ключ</s:String>
+    
+    <!-- ViewManualContact -->
+    <s:String x:Key="ViewManualContact_Title">Создать новый контакт</s:String>
+    <s:String x:Key="ViewManualContact_FirstName">Имя</s:String>
+    <s:String x:Key="ViewManualContact_LastName">Фамилия</s:String>
+    <s:String x:Key="ViewManualContact_Add">Добавить</s:String>
+
+    <!-- ViewContactDirectory -->
+    <s:String x:Key="ViewContactDirectory_Search">Введите имя, фамилия, sip-номер</s:String>
+
+    <!-- ViewContactRequestInvite -->
+    <s:String x:Key="ViewContactRequestInvite_RequestInvite">Приглашения и запросы</s:String>
+    <s:String x:Key="ViewContactRequestInvite_Request">Запросы:</s:String>
+    <s:String x:Key="ViewContactRequestInvite_Invite">Приглашения:</s:String>
+
+    <!-- ViewCall -->
+    <s:String x:Key="ViewCall_ContextMenuCall">Позвонить</s:String>
+    <s:String x:Key="ViewCall_ContextMenuWriteMessage">Написать сообщение</s:String>
+    <s:String x:Key="ViewCall_ContextMenuCreateContact">Создать контакт</s:String>
+
+    <!-- ViewCallActive -->
+    <s:String x:Key="ViewCallActive_Video">Видео</s:String>
+    <s:String x:Key="ViewCallActive_Mute">Микрофон</s:String>
+    <s:String x:Key="ViewCallActive_Add">Добавить</s:String>
+    <s:String x:Key="ViewCallActive_Pause">Удержание</s:String>
+    <s:String x:Key="ViewCallActive_CallTransfer">Перевод вызова</s:String>
+
+    <!-- ViewSelectionContact -->
+    <s:String x:Key="ViewSelectionContact_CreateMultiChat">Создать новый чат</s:String>
+    <s:String x:Key="ViewSelectionContact_Search">Поиск</s:String>
+    <s:String x:Key="ViewSelectionContact_Selected">Выбрано</s:String>
+    <s:String x:Key="ViewSelectionContact_CreateChat">Создать чат</s:String>
+    <s:String x:Key="ViewSelectionContact_ChatMembers">Участники чата</s:String>
+    <s:String x:Key="ViewSelectionContact_Save">Сохранить</s:String>
+    <s:String x:Key="ViewSelectionContact_Send">Отправить</s:String>
+    <s:String x:Key="ViewSelectionContact_SendContact">Отправить контакт</s:String>
+
+    <!-- ViewChat -->
+    <s:String x:Key="ViewChat_Call">Позвонить</s:String>
+    <s:String x:Key="ViewChat_Rename">Переименовать</s:String>
+    <s:String x:Key="ViewChat_ChatMembers">Участники чата</s:String>
+    <s:String x:Key="ViewChat_MarkReadAll">Пометить все как прочитанные</s:String>
+    <s:String x:Key="ViewChat_Delete">Очистить историю чата</s:String>
+    <s:String x:Key="ViewChat_Draft">Черновик:</s:String>
+
+    <!-- ViewChatDetail -->
+    <s:String x:Key="ViewChatDetail_Today">Сегодня</s:String>
+    <s:String x:Key="ViewChatDetail_Yesterday">Вчера</s:String>
+    <s:String x:Key="ViewChatDetail_UnreadMessages">Непрочитанные сообщения</s:String>
+    <s:String x:Key="ViewChatDetail_EnterMessage">Введите текстовое сообщение</s:String>
+    <s:String x:Key="ViewChatDetail_MessageDeleted">Сообщение удалено</s:String>
+    <s:String x:Key="ViewChatDetail_EditMessage">Редактировать сообщение</s:String>
+    <s:String x:Key="ViewChatDetail_DeleteMessage">Удалить сообщение</s:String>
+    <s:String x:Key="ViewChatDetail_CopyMessage">Копировать сообщение</s:String>
+    <s:String x:Key="ViewChatDetail_ContextMenuSendMessage">Отправить личное сообщение</s:String>
+    <s:String x:Key="ViewChatDetail_ContextMenuBlockContact">Заблокировать контакт</s:String>
+    <s:String x:Key="ViewChatDetail_ContextMenuRemoveFromContactList">Удалить из контактов</s:String>
+    <s:String x:Key="ViewChatDetail_ContextMenuChatSettings">Настройки чата</s:String>
+    <s:String x:Key="ViewChatDetail_ContextMenuLeaveChat">Покинуть чат</s:String>
+    <s:String x:Key="ViewChatDetail_ContextMenuMultipleChoice">Выбрать</s:String>
+    <s:String x:Key="ViewChatDetail_InviteToChat">Добавить</s:String>
+    <s:String x:Key="ViewChatDetail_SendContact">Отправить контакт</s:String>
+    <s:String x:Key="ViewChatDetail_AnswerMessage">Ответить</s:String>
+    <s:String x:Key="ViewChatDetail_SelectAll">Выделить все</s:String>
+    <s:String x:Key="ViewChatDetail_Forward">Переслать</s:String>
+    <s:String x:Key="ViewChatDetail_Copy">Копировать</s:String>
+    <s:String x:Key="ViewChatDetail_Cite">Цитировать</s:String>
+    <s:String x:Key="ViewChatDetail_Export">Экспортировать</s:String>
+    <s:String x:Key="ViewChatDetail_ToFavorites">В избранное</s:String>
+    <s:String x:Key="ViewChatDetail_Delete">Очистить</s:String>
+    <s:String x:Key="ViewChatDetail_At">в</s:String>
+    <s:String x:Key="ViewChatDetail_CountQuotingMessage">Цитированных сообщений:</s:String>
+    <s:String x:Key="ViewChatDetail_EncryptedMessage">Сообщение зашифровано</s:String>
+    <s:String x:Key="ViewChatDetail_EncryptedChat">Сообщения в этом чате защищены шифрованием</s:String>
+    <s:String x:Key="ViewChatDetail_More">Подробнее</s:String>
+    <s:String x:Key="ViewChatDetail_ContactDetails">Контактные данные:</s:String>
+    <s:String x:Key="ViewChatDetail_Send">Отправлено</s:String>
+    <s:String x:Key="ViewChatDetail_DeliveredToServer">Дост. до сервера</s:String>
+
+    <!-- ViewChatEditMessage -->
+    <s:String x:Key="ViewChatEditMessage_Save">Сохранить</s:String>
+    <s:String x:Key="ViewChatEditMessage_Cancel">Отмена</s:String>
+    <s:String x:Key="ViewChatEditMessage_Title">Редактировать сообщение</s:String>
+
+    <!-- ViewDialpad -->
+    <s:String x:Key="ViewDialpad_ClearPhoneNumber">Удалить один символ (если удерживать более 2 сек, то будет очищен весь номер)</s:String>
+
+    <!-- ViewSecurityKeyGenerated -->
+    <s:String x:Key="ViewSecurityKeyGenerated_KeyGenerated">Ваш персональный ключ шифрования сгенерирован</s:String>
+    <s:String x:Key="ViewSecurityKeyGenerated_SaveKey">Сохраните ключ в безопасное место для восстановления данных в случае смены устройства</s:String>
+    <s:String x:Key="ViewSecurityKeyGenerated_CopyToClipboard">Копировать в буфер</s:String>
+    <s:String x:Key="ViewSecurityKeyGenerated_Export">Экспортировать</s:String>
+    <s:String x:Key="ViewSecurityKeyGenerated_Continue">Продолжить</s:String>
+    <s:String x:Key="ViewSecurityKeyGenerated_ExportSucced">Ваш ключ сохранен</s:String>
+
+    <!-- ViewSecurityKeyChatAccess -->
+    <s:String x:Key="ViewSecurityKeyChatAccess_ChatAccess">Для доступа к своим чатам  введите ранее созданный  ключ шифрования</s:String>
+    <s:String x:Key="ViewSecurityKeyChatAccess_ImportEncryptionKey">Для переноса ключа с помощью QR-кода Вам потребуется Ваше старое устройство. Для переноса  ключа через копирование, скопируйте ранее сохраненный ключ.</s:String>
+    <s:String x:Key="ViewSecurityKeyChatAccess_CopyFromClipboard">Скопировать из буфера</s:String>
+    <s:String x:Key="ViewSecurityKeyChatAccess_ScanQRCode">Сканировать QR-код</s:String>
+    <s:String x:Key="ViewSecurityKeyChatAccess_Continue">Пропустить</s:String>
+
+    <!-- WindowCallRedirect -->
+    <s:String x:Key="ViewCallRedirect_Search">Поиск</s:String>
+    <s:String x:Key="ViewCallRedirect_AllContact">Все контакты</s:String>
+    <s:String x:Key="ViewCallRedirect_DodicallContact">dodicall</s:String>
+    <s:String x:Key="ViewCallRedirect_SavedContact">Сохраненные</s:String>
+    <s:String x:Key="ViewCallRedirect_BlockedContact">Заблокированные</s:String>
+    <s:String x:Key="ViewCallRedirect_WhiteContact">Белые</s:String>
+    <s:String x:Key="ViewCallRedirect_RedirectCall">Перевести вызов</s:String>
+    <s:String x:Key="ViewCallRedirect_Cancel">Отмена</s:String>
+    <s:String x:Key="ViewCallRedirect_AdditionalContacts">Дополнительные контакты:</s:String>
+    <s:String x:Key="ViewCallRedirect_Phone">телефон</s:String>
+
+    <!-- ViewChatRedirect -->
+    <s:String x:Key="ViewChatRedirect_Cancel">Отмена</s:String>
+    <s:String x:Key="ViewChatRedirect_Title">Переслать сообщение</s:String>
+    <s:String x:Key="ViewChatRedirect_Search">Поиск</s:String>
+
+</ResourceDictionary>

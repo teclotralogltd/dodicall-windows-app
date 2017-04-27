@@ -1,0 +1,4 @@
+C:\Git\dodicall-windows-app\DodicallWindowsApp\DAL\bin\TestBuild\DAL.dll
+C:\Git\dodicall-windows-app\DodicallWindowsApp\DAL\bin\TestBuild\DodicallLogic.dll
+C:\Git\dodicall-windows-app\DodicallWindowsApp\DAL\obj\TestBuild\DAL.dll
+C:\Git\dodicall-windows-app\DodicallWindowsApp\DAL\obj\TestBuild\DAL.csprojResolveAssemblyReference.cache

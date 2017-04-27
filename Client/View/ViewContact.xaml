@@ -1,0 +1,360 @@
+﻿<!--
+//  Copyright (C) 2016, Telco Cloud Trading & Logistic Ltd
+//
+//  This file is part of dodicall.
+//  dodicall is free software : you can redistribute it and / or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//
+//  dodicall is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with dodicall.If not, see<http://www.gnu.org/licenses/> .
+-->
+
+<UserControl x:Class="dodicall.View.ViewContact"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:dodicall.View"
+             xmlns:converters="clr-namespace:dodicall.Converter"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Name="ViewContactUserControl">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Height="46">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Height="36" Width="41" MouseLeftButtonDown="GridContact_Click">
+                <Image Name="ImageContact" Height="29" Width="29" Source="/dodicall;component/Resources/contacts_active.png"/>
+                <Grid Name="GridCountInvateUnread" HorizontalAlignment="Right" VerticalAlignment="Top">
+                    <Rectangle Name="RectangleGridCountInvateUnread" Fill="Red" Height="16" Width="16" RadiusX="8" RadiusY="8"/>
+                    <Label Margin="0,0,0,1" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="10" Content="{Binding CountInvateUnreadString}"/>
+                </Grid>
+            </Grid>
+            <Rectangle Grid.Column="0" Name="RectangleContact" VerticalAlignment="Bottom" Fill="Transparent" Height="2"/>
+
+            <Grid Grid.Column="1" Height="36" Width="41" MouseLeftButtonDown="GridHistory_Click">
+                <Image Name="ImageHistory" Height="29" Width="28" Source="/dodicall;component/Resources/history_inactive.png"/>
+                <Grid Name="GridCountUnreadCall" HorizontalAlignment="Right" VerticalAlignment="Top">
+                    <Rectangle Name="RectangleGridCountUnreadCall" Fill="Red" Height="16" Width="16" RadiusX="8" RadiusY="8"/>
+                    <Label Margin="0,0,0,1" Name="LabelGridCountUnreadCall" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="10"/>
+                </Grid>
+            </Grid>
+            <Rectangle Grid.Column="1" Name="RectangleHistory" VerticalAlignment="Bottom" Fill="Transparent" Height="2"/>
+
+            <Grid Grid.Column="2" Height="36" Width="45" MouseLeftButtonDown="GridChat_Click">
+                <Image Name="ImageChat" Height="29" Width="29" Source="/dodicall;component/Resources/chat_inactive.png"/>
+                <Grid Name="GridCountUnreadMessage" HorizontalAlignment="Right" VerticalAlignment="Top">
+                    <Rectangle Name="RectangleGridCountUnreadMessage" Fill="Red" Height="16" Width="16" RadiusX="8" RadiusY="8"/>
+                    <Label Margin="0,0,0,1" Name="LabelGridCountUnreadMessage" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="10"/>
+                </Grid>
+                <Image Margin="0,0,2,2" Height="12" Width="13" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="/dodicall;component/Resources/no_connection.png">
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ModelConnectStateObj.ChatStatus.Code}" Value="0">
+                                    <Setter Property="Visibility" Value="Hidden"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ModelConnectStateObj.ChatStatus.Code}" Value="1">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ModelConnectStateObj.ChatStatus.Code}" Value="2">
+                                    <Setter Property="Visibility" Value="Hidden"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ModelConnectStateObj.ChatStatus.Code}" Value="3">
+                                    <Setter Property="Visibility" Value="Hidden"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+                <Image Margin="0,0,2,2" Height="13" Width="13" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="/dodicall;component/Resources/connected.png">
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ModelConnectStateObj.ChatStatus.Code}" Value="0">
+                                    <Setter Property="Visibility" Value="Hidden"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ModelConnectStateObj.ChatStatus.Code}" Value="1">
+                                    <Setter Property="Visibility" Value="Hidden"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ModelConnectStateObj.ChatStatus.Code}" Value="2">
+                                    <Setter Property="Visibility" Value="Hidden"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ModelConnectStateObj.ChatStatus.Code}" Value="3">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+            </Grid>
+            <Rectangle Grid.Column="2" Name="RectangleChat" VerticalAlignment="Bottom" Fill="Transparent" Height="2"/>
+
+            <Grid Grid.Column="3" Height="36" Width="45" MouseLeftButtonDown="GridDialpad_Click">
+                <Image Name="ImageDialpad" Height="29" Width="29" Source="/dodicall;component/Resources/dialpad_inactive.png"/>
+                <Image Margin="0,0,2,2" Height="12" Width="13" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="/dodicall;component/Resources/no_connection.png">
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ModelConnectStateObj.VoipStatus.Code}" Value="0">
+                                    <Setter Property="Visibility" Value="Hidden"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ModelConnectStateObj.VoipStatus.Code}" Value="1">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ModelConnectStateObj.VoipStatus.Code}" Value="2">
+                                    <Setter Property="Visibility" Value="Hidden"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ModelConnectStateObj.VoipStatus.Code}" Value="3">
+                                    <Setter Property="Visibility" Value="Hidden"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+                <Image Margin="0,0,2,2" Height="13" Width="13" HorizontalAlignment="Right" VerticalAlignment="Bottom" Source="/dodicall;component/Resources/connected.png">
+                    <Image.Style>
+                        <Style TargetType="{x:Type Image}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ModelConnectStateObj.VoipStatus.Code}" Value="0">
+                                    <Setter Property="Visibility" Value="Hidden"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ModelConnectStateObj.VoipStatus.Code}" Value="1">
+                                    <Setter Property="Visibility" Value="Hidden"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ModelConnectStateObj.VoipStatus.Code}" Value="2">
+                                    <Setter Property="Visibility" Value="Hidden"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ModelConnectStateObj.VoipStatus.Code}" Value="3">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+            </Grid>
+            <Rectangle Grid.Column="3" Name="RectangleDialpad" VerticalAlignment="Bottom" Fill="Transparent" Height="2"/>
+
+        </Grid>
+
+        <Grid Grid.Row="2" Name="GridContact" Visibility="{Binding Path=ContactList, Converter={converters:ConverterBoolToVisibilityHidden}}" Background="WhiteSmoke">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <TextBox Name="TextBoxSearch" Margin="8" Text="{Binding ContactListFilter, UpdateSourceTrigger=PropertyChanged}" BorderBrush="Transparent" GotFocus="TextBoxSearch_GotFocus" LostFocus="TextBoxSearch_LostFocus"/>
+                <TextBlock Name="TextBlockSearch" Margin="16,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="Silver" FontSize="14" Text="{DynamicResource ViewContact_Search}" MouseLeftButtonDown="TextBlockSearch_MouseLeftButtonDown"/>
+                <Image Width="12" Margin="0,0,16,0" HorizontalAlignment="Right" Source="/dodicall;component/Resources/search.png"/>
+            </Grid>
+            <Grid Grid.Row="1" Height="38">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid Background="White">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" MouseLeftButtonDown="StackPanelFilterContact_OnMouseLeftButtonDown">
+                        <TextBlock Foreground="Silver" FontSize="14" FontWeight="Bold" Text="{Binding CurrentApplyFilterName}"/>
+                        <Image Margin="5,5,0,5" Name="ImageFilterContact" Height="6" Source="/dodicall;component/Resources/up_down.png" VerticalAlignment="Bottom">
+                            <Image.ContextMenu>
+                                <ContextMenu Name="ContextMenuFilterContact">
+                                    <MenuItem Header="{DynamicResource ViewContact_AllContact}" Click="MenuItemAllContact_OnClick"/>
+                                    <MenuItem Header="{DynamicResource ViewContact_DodicallContact}" Click="MenuItemDodicallContact_OnClick"/>
+                                    <MenuItem Header="{DynamicResource ViewContact_SavedContact}" Click="MenuItemSavedContact_OnClick"/>
+                                    <MenuItem Header="{DynamicResource ViewContact_BlockedContact}" Click="MenuItemBlockedContact_OnClick"/>
+                                    <MenuItem Header="{DynamicResource ViewContact_WhiteContact}" Click="MenuItemWhiteContact_OnClick"/>
+                                </ContextMenu>
+                            </Image.ContextMenu>
+                        </Image>
+                    </StackPanel>
+                </Grid>
+                <TextBlock Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Silver" FontSize="14" FontWeight="Bold" Text="{DynamicResource ViewContact_GroupContact}"/>
+            </Grid>
+            <ListBox Grid.Row="2" Name="ListBoxContact" ItemsSource="{Binding CurrentListModelContact}" BorderThickness="0" SelectionChanged="ListBoxContact_OnSelectionChanged"
+                     SizeChanged="ListBoxContact_SizeChanged" SelectedItem="{Binding CurrentModelContact}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Height="50" HorizontalAlignment="Left" MouseLeftButtonDown="GridContactItem_OnMouseLeftButtonDown" Width="{Binding ElementName=ViewContactUserControl, Path=WidthContactItem}">
+                            <Grid.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Name="ContextMenuCall" Header="{DynamicResource ViewContact_ContextMenuCall}" Click="ContextMenuCall_OnClick"/>
+                                    <MenuItem Header="{DynamicResource ViewContact_ContextMenuWriteMessage}" Click="ContextMenuWriteMessage_OnClick" IsEnabled="{Binding IsDodicall}"/>
+                                    <MenuItem Name="ContextMenuEdit" Header="{DynamicResource ViewContact_ContextMenuEdit}" IsEnabled="False"/>
+                                    <MenuItem Name="ContextMenuAddToWhite" Header="{DynamicResource ViewContact_ContextMenuAddToWhite}" Click="ContextMenuAddToWhite_OnClick">
+                                        <MenuItem.Style>
+                                            <Style TargetType="{x:Type MenuItem}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding White}" Value="true">
+                                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding White}" Value="false">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </MenuItem.Style>
+                                    </MenuItem>
+                                    <MenuItem Name="ContextMenuDeleteFromWhite" Header="{DynamicResource ViewContact_ContextMenuDeleteFromWhite}" Click="ContextMenuDeleteFromWhite_OnClick">
+                                        <MenuItem.Style>
+                                            <Style TargetType="{x:Type MenuItem}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding White}" Value="true">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding White}" Value="false">
+                                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </MenuItem.Style>
+                                    </MenuItem>
+                                    <MenuItem Name="ContextMenuBlock" Header="{DynamicResource ViewContact_ContextMenuBlock}" Click="ContextMenuBlock_OnClick">
+                                        <MenuItem.Style>
+                                            <Style TargetType="{x:Type MenuItem}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Blocked}" Value="true">
+                                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Blocked}" Value="false">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </MenuItem.Style>
+                                    </MenuItem>
+                                    <MenuItem Name="ContextMenuUnblock" Header="{DynamicResource ViewContact_ContextMenuUnblock}" Click="ContextMenuUnblock_OnClick">
+                                        <MenuItem.Style>
+                                            <Style TargetType="{x:Type MenuItem}">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Blocked}" Value="true">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding Blocked}" Value="false">
+                                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </MenuItem.Style>
+                                    </MenuItem>
+                                    <MenuItem Header="{DynamicResource ViewContact_ContextMenuDelete}" Click="ContextMenuDelete_OnClick"> 
+                                    </MenuItem>
+                                </ContextMenu>
+                            </Grid.ContextMenu>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.ColumnSpan="2"/> <!-- Нужен для покрытия большей площади клика GridContactItem_OnMouseLeftButtonDown -->
+                            <Grid Grid.Column="0" Margin="0,0,3,0" Height="36" Width="36">
+                                <Image Source="{Binding Avatar}"/>
+                                <Image HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="15" Width="15" Source="/dodicall;component/Resources/IconTray_small.png"
+                                       Visibility="{Binding Path=IsDodicall, Converter={converters:ConverterBoolToVisibilityCollapsed}}"/>
+                            </Grid>
+
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition Name="RowDefinitionStatus"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Margin="0,8,0,0" Name="TextBlockFullName" FontWeight="Bold" FontSize="14" TextTrimming="CharacterEllipsis" Text="{Binding FullName}" VerticalAlignment="Center"/>
+                                <Grid Grid.Row="1" Name="GridStatus" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Ellipse Margin="3,7,3,5" Height="6" Width="6" Name="EllipseStatus" Fill="{Binding ModelEnumUserBaseStatusObj.Color}"/>
+                                        <TextBlock Margin="5,5,0,5" TextTrimming="CharacterEllipsis" FontSize="12" Text="{Binding ModelEnumUserBaseStatusObj.Name}"/>
+                                    </StackPanel>
+                                    <TextBlock Grid.Column="1" Margin="0,5,0,5" TextTrimming="CharacterEllipsis" FontSize="12" Text="{Binding UserExtendedStatusForFullStatus}"/>
+                                </Grid>
+                                <StackPanel Grid.Row="2" Name="StackPanelBlocked" Margin="0,0,0,5" VerticalAlignment="Center" Orientation="Horizontal">
+                                    <Image Height="9" Margin="0,0,5,0" Source="/dodicall;component/Resources/blocked.png"/>
+                                    <TextBlock Foreground="Silver" FontSize="12" Text="{DynamicResource ViewContact_Blocked}"/>
+                                </StackPanel>
+                            </Grid>
+
+                        </Grid>
+                        <DataTemplate.Triggers>
+                            <DataTrigger Binding="{Binding IsAccessStatus}" Value="false">
+                                <Setter TargetName="RowDefinitionStatus" Property="Height" Value="0"/>
+                                <Setter TargetName="TextBlockFullName" Property="Margin" Value="0"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Blocked}" Value="true">
+                                <Setter TargetName="RowDefinitionStatus" Property="Height" Value="0"/>
+                                <Setter TargetName="TextBlockFullName" Property="Margin" Value="0"/>
+                                <Setter TargetName="StackPanelBlocked" Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Blocked}" Value="false">
+                                <Setter TargetName="GridStatus" Property="Visibility" Value="Visible"/>
+                                <Setter TargetName="StackPanelBlocked" Property="Visibility" Value="Collapsed"/>
+                            </DataTrigger>
+                        </DataTemplate.Triggers>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <StackPanel Grid.Row="3" Background="White">
+                <Rectangle Fill="Silver" Height="1"/>
+                <Grid Name="GridRequestInvite">
+                    <Button Height="30" HorizontalContentAlignment="Stretch" Style="{StaticResource ButtonStyleTransparent}" Click="ButtonRequestInvite_OnClick">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Margin="0,0,10,0" Height="14" Width="20" Source="/dodicall;component/Resources/invitations.png"/>
+                            <TextBlock Grid.Column="1" VerticalAlignment="Center" Foreground="Silver" FontSize="14" Text="{DynamicResource ViewContact_RequestInvite}"/>
+                            <DockPanel Grid.Column="2" Name="DockPanelCountInvateUnread">
+                                <Grid>
+                                    <Rectangle Name="RectangleDockPanelCountInvateUnread" Fill="Red" Height="16" Width="16" RadiusX="8" RadiusY="8"/>
+                                    <Label Margin="0,0,0,1" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="10" Content="{Binding CountInvateUnreadString}"/>
+                                </Grid>
+                            </DockPanel>
+                        </Grid>
+                    </Button>
+                </Grid>
+                <Grid Name="GridFindNewContact">
+                    <Button Height="30" HorizontalContentAlignment="Left" Style="{StaticResource ButtonStyleTransparent}" Click="ButtonFindNewContact_OnClick">
+                        <StackPanel Orientation="Horizontal" Height="30">
+                            <Image Margin="0,0,10,0" Height="14" Width="20" Source="/dodicall;component/Resources/find_new contact.png"/>
+                            <TextBlock VerticalAlignment="Center" Foreground="Silver" FontSize="14" Text="{DynamicResource ViewContact_FindNewContact}"/>
+                        </StackPanel>
+                    </Button>
+                </Grid>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="2" Name="GridCall" Visibility="{Binding Path=HistoryList, Converter={converters:ConverterBoolToVisibilityHidden}}"/>
+
+        <Grid Grid.Row="2" Name="GridChat" Visibility="{Binding Path=ChatList, Converter={converters:ConverterBoolToVisibilityHidden}}"/>
+
+        <Grid Grid.Row="2" Name="GridDialpad" Visibility="{Binding Path=DialpadList, Converter={converters:ConverterBoolToVisibilityHidden}}"/>
+
+    </Grid>
+
+</UserControl>
+
+    
